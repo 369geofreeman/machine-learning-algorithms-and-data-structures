@@ -1,4 +1,4 @@
-# Gradient Decent and the cost function
+# Gradient Decent and the Cost Function
 
 
 **Gradient decent is an algorithm that finds the best fit line for the given data set**
