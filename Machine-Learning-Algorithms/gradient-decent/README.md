@@ -108,3 +108,5 @@ Here is the Algorithm with each iteration shown on our graph
 
 
  <img src="img/img11.png" alt="Gradient decent results" width="500"/>
+
+[The code can be found here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/gradient-decent/gradient-decent.py)
