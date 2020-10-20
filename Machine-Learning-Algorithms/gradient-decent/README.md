@@ -29,7 +29,15 @@ equasion = (155.78) * (area + 180616.43)
 
 The equasion is nothing but the blue line on the graph below which is known as the best fit line. It basically sits as best it can over all our data points
 
+The general algorith looks like this. Notice the learning rate and the derivative which controlls the step sizes we wish to take. This is further explained below
+
+<img src="img/img13.png" alt="gradient decent algorithm" width="500"/>
+
+Here is an image of it having found the line of best fit over our data
+
 <img src="img/img2.png" alt="line of best fit img" width="500"/> 
+
+BUt how do we find this line using the algorithm?
 
 ### How we find the line of best fit
 
