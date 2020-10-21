@@ -228,7 +228,9 @@ but what if 𝜣₁ = 0. Then what would J(0) be? Well then it give us a flat li
 
 And if we keep computing these values we will get something like this
 
-<img src="img/img16.JPEG" alt="All points" width="500"/>
+<p>
+	<img src="img/img16.jpeg" alt="All points" width="500"/>
+</p>
 
 So, eventually our computed range of values forms what our function J(𝜣₁) looks like
 
