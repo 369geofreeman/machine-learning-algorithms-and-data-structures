@@ -53,7 +53,7 @@ The job of the hypothesis is tio take as input, for instance the size of a house
 
 So h is a function that maps x's to y's
 
-<img src="img/img1.jpeg" alt="learning flow img" width="500"/>
+<img src="img/img1.png" alt="learning flow img" width="500"/>
 
 
 We represent h as **h𝜣(x) = 𝜣₀ + 𝜣₁**
@@ -62,7 +62,7 @@ or **h(x)** for shorthand
 
 what this means is y is a linear function of x
 
-<img src="img/img2.jpeg" alt="Linear function img" width="500"/>
+<img src="img/img2.png" alt="Linear function img" width="500"/>
 
 
 This function is predicting that y is some straight line function of x
@@ -81,16 +81,16 @@ With different 𝜣⁽ⁱ⁾'s we get different hypothesis.
 
 For example, if we have 𝜣₀ = 1.5 & 𝜣₁ = 0, then we get a constant value function which is just a flat line at 1.5
 
-<img src="img/img3.jpeg" alt="flat img" width="500"/>
+<img src="img/img3.png" alt="flat img" width="500"/>
 
 
 IF we have 𝜣₀ = 0 & 𝜣₁ = 0.5, then we get a slope that passes through 2 because it is climbibg at a rate of 0.5 for each 1
 
-<img src="img/img4.jpeg" alt="slope img" width="500"/>
+<img src="img/img4.png" alt="slope img" width="500"/>
 
 And finally, if we have 𝜣₀ = 1 & 𝜣₁ = 0.5, we have a hypothesis that ppasses through the (2,2) point because we start at 1 and climb 0.5 for each 1.
 
-<img src="img/img5.jpeg" alt="slope img" width="500"/>
+<img src="img/img5.png" alt="slope img" width="500"/>
 
 
 So how do we come up with a good 𝜣₀ & 𝜣₁ to fit our data points in a best fit line?
@@ -113,7 +113,7 @@ to be small
 Here is the function we will use to do that
 
 
-<img src="img/img6.jpeg" alt="Cost function" width="500"/>
+<img src="img/img6.png" alt="Cost function" width="500"/>
 
 To put another way, we are finding the values of 𝜣₀, 𝜣₁ so that the average (1/2m) times the sum of the square errors between our predictions (x⁽ⁱ⁾) minus the actual values of the houses (y⁽ⁱ⁾) on the traning set is minimised.
 
@@ -121,7 +121,7 @@ And this is our overall objective function for linear regression.
 
 By convention we define a cost functionn like this 
 
-<img src="img/img7.jpeg" alt="Cost function" width="500"/>
+<img src="img/img7.png" alt="Cost function" width="500"/>
 
 
 And what we want to do is minimise over 𝜣₀ and 𝜣₁ our function J(𝜣₀, 𝜣₁)
@@ -137,7 +137,7 @@ Now lets look at what the cost function is doing and why we want to use it.
 The hypothesis gives us a straight line and 𝜣₀, 𝜣₁ define the height and slop of the line
 * Parameters: 𝜣₀, 𝜣₁
 * Cost function:
-<img src="img/img7.jpeg" alt="Cost function" width="500"/>
+<img src="img/img7.png" alt="Cost function" width="500"/>
 * Goal: minimise J(𝜣₀, 𝜣₁)
 
 To better visualise the cost functions, we will work with a simplified hypothesis function
@@ -148,7 +148,7 @@ To better visualise the cost functions, we will work with a simplified hypothesi
 
 The cost function will now look like this:
 
-<img src="img/img8.jpeg" alt="new cost function" width="500"/>
+<img src="img/img8.png" alt="new cost function" width="500"/>
 
 
 And the minimise function will be **minimise J(𝜣₁)**
@@ -163,17 +163,17 @@ The cost function, J, which is a function of the parameter 𝜣₁, controls the
 
 Lets plot these functions
 
-<img src="img/img9.jpeg" alt="Plots functions img" width="500"/>
+<img src="img/img9.png" alt="Plots functions img" width="500"/>
 
 Lets temporary set 𝜣₁ equal to 1 and figure out what is J(cost function) of 𝜣₁ = 1
 
 As usual we define our cost function as follows
 
- <img src="img/img8.jpeg" alt="new cost function" width="500"/>
+ <img src="img/img8.png" alt="new cost function" width="500"/>
 
 If we simplify it we get
 
- <img src="img/img10.jpeg" alt="simplify cost function" width="500"/>
+ <img src="img/img10.png" alt="simplify cost function" width="500"/>
 
 
 So J(1) = 0 as shown in the example above it is plotted at (0,1)
@@ -185,7 +185,7 @@ Now lets look at some more examples.
 Suppose 𝜣₁ = 0.5
 Then our slope will be o.5 as shows below
 
- <img src="img/img11.jpeg" alt="0.5 slope" width="500"/>
+ <img src="img/img11.png" alt="0.5 slope" width="500"/>
 
 
 Now computing J(0.5), it turnes out that the cost function is going to be the sum of the square values of each point defining the line, shown in the img above.
@@ -198,12 +198,12 @@ The third:
 (1.5-3)²
 So the cost function looks like this
 
-<img src="img/img12.jpeg" alt="sum img" width="500"/>
+<img src="img/img12.png" alt="sum img" width="500"/>
 
 
 So J(0.5) = 0.58, lets plot that on our graph that has the point at 1 already
 
-<img src="img/img13.jpeg" alt="new pointg" width="500"/>
+<img src="img/img13.png" alt="new pointg" width="500"/>
 
 
 Another example
@@ -218,17 +218,17 @@ Well, remember the mechanics of this cost function is to square the sum of the d
 
 So we plug in the values 
 
-<img src="img/img14.jpeg" alt="new points" width="500"/>
+<img src="img/img14.png" alt="new points" width="500"/>
 
 which gives us a new point on the graph
 
-<img src="img/img15.jpeg" alt="new graph" width="500"/>
+<img src="img/img15.png" alt="new graph" width="500"/>
 
 but what if 𝜣₁ = 0. Then what would J(0) be? Well then it give us a flat line along the x axis which is where our data point is. This is great and exactly what we want.
 
 And if we keep computing these values we will get something like this
 
-<img src="img/img16.jpg" raw=true alt="All points" width="500"/>
+<img src="img/img16.png" raw=true alt="All points" width="500"/>
 
 So, eventually our computed range of values forms what our function J(𝜣₁) looks like
 
