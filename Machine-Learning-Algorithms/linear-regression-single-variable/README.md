@@ -213,7 +213,49 @@ What is the value of J(0) when
 * h𝜣(x) = 𝜣₁x
 And our cost function is as above?
 
-Well, remember the mechanics of this cost function is to square the sum of the distances between the h𝜣(xⁱ) or predicted value and yⁱ of the actual value (which in this case is our house prices)
+Well, remember the mechanics of this cost function is to square the sum of the distances between the h𝜣(xⁱ) of predicted value and yⁱ of the actual value (which in this case is our house prices)
+
+
+So we plug in the values 
+
+<img src="img/img14.jpeg" alt="new points" width="500"/>
+
+which gives us a new point on the graph
+
+<img src="img/img15.jpeg" alt="new graph" width="500"/>
+
+but what if 𝜣₁ = 0. Then what would J(0) be? Well then it give us a flat line along the x axis which is where our data point is. This is great and exactly what we want.
+
+And if we keep computing these values we will get something like this
+
+<img src="img/img16.jpeg" alt="new pointg" width="500"/>
+
+So, eventually our computed range of values forms what our function J(𝜣₁) looks like
+
+
+### To recap
+
+
+Each value of 𝜣₁ corrisponds to a different straight line fit. We then derive a different value of J(𝜣₁) so each h𝜣(x) will give us another point for J(𝜣₁) towards the data point.
+
+Remember the optimisation objective for our learning algorith is to choose the value of 𝜣₁ that minimises the values of J(𝜣₁).
+
+So our objective function for linear regression is 
+```
+
+	minimise  J(𝜣₁)
+	  𝜣₁	 ------
+
+```
+
+And as seen from our example we worked out that 𝜣₁ = 1 which is the perfect line of best fit for our example where the data points were [(1,1), (2,2), (3,3)]
+
+
+
+
+
+
+
 
 
 
