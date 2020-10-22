@@ -46,10 +46,10 @@ for example, from the table above:
 
 #### How a supervised algorithm works
 
-We start with a traning set, like our traning set of house prices above, and we feed thatr to our learning algorithm.
-It's then the job of the learning algorithm to output a function. Not the learning algorithm is usually denoted as 'h', which stands for hypothisis.
+We start with a traning set, like our traning set of house prices above, and we feed that to our learning algorithm.
+It's then the job of the learning algorithm to output a function. Now, the learning algorithm is usually denoted as 'h', which stands for hypothisis.
 
-The job of the hypothesis is tio take as input, for instance the size of a house (x⁽ⁱ⁾), and tries to output the estimated value y⁽ⁱ⁾ of the corrisponding house.
+The job of the hypothesis is to take as input, for instance the size of a house (x⁽ⁱ⁾), and tries to output the estimated value y⁽ⁱ⁾ of the corrisponding house.
 
 So h is a function that maps x's to y's
 
@@ -84,7 +84,7 @@ For example, if we have 𝜣₀ = 1.5 & 𝜣₁ = 0, then we get a constant valu
 <img src="img/img3.png" alt="flat img" width="500"/>
 
 
-IF we have 𝜣₀ = 0 & 𝜣₁ = 0.5, then we get a slope that passes through 2 because it is climbibg at a rate of 0.5 for each 1
+If we have 𝜣₀ = 0 & 𝜣₁ = 0.5, then we get a slope that passes through 2 because it is climbibg at a rate of 0.5 for each 1
 
 <img src="img/img4.png" alt="slope img" width="500"/>
 
@@ -126,7 +126,7 @@ By convention we define a cost functionn like this
 
 And what we want to do is minimise over 𝜣₀ and 𝜣₁ our function J(𝜣₀, 𝜣₁)
 
-This cost function is also cxalled the **Squared error function**
+This cost function is also called the **Squared error function**
 
 Now lets look at what the cost function is doing and why we want to use it.
 
@@ -134,7 +134,7 @@ Now lets look at what the cost function is doing and why we want to use it.
 **So far we have established**
 
 * Hypopthesis: h𝜣(x) = 𝜣₀ + 𝜣₁, x
-The hypothesis gives us a straight line and 𝜣₀, 𝜣₁ define the height and slop of the line
+The hypothesis gives us a straight line and 𝜣₀, 𝜣₁ define the height and slope of the line
 * Parameters: 𝜣₀, 𝜣₁
 * Cost function:
 <img src="img/img7.png" alt="Cost function" width="500"/>
@@ -157,7 +157,7 @@ And the minimise function will be **minimise J(𝜣₁)**
 So, the two key functions we want to understand are the **h𝜣(x)** hypothesis function and the **J(𝜣ᵢ)** cost function.
 
 
-The hypothesis function is h of x. This is a function of x which in our case is, the hypothesis is a function of what the size of  house is (x)
+The hypothesis function is h of x. This is a function of x which in our case is, the hypothesis is a function of what the size of a house is (x)
 
 The cost function, J, which is a function of the parameter 𝜣₁, controls the slope of the line
 
@@ -183,12 +183,12 @@ Now lets look at some more examples.
 
 
 Suppose 𝜣₁ = 0.5
-Then our slope will be o.5 as shows below
+Then our slope will be 0.5 as shown below
 
  <img src="img/img11.png" alt="0.5 slope" width="500"/>
 
 
-Now computing J(0.5), it turnes out that the cost function is going to be the sum of the square values of each point defining the line, shown in the img above.
+Now computing J(0.5), it turns out that the cost function is going to be the sum of the square values of each point defining the line, shown in the img above.
 So the difference between (yⁱ) and the predicted value h(xⁱ).
 Given that, the first example is going to be
 (0.5-1)²
@@ -238,7 +238,7 @@ So, eventually our computed range of values forms what our function J(𝜣₁) l
 
 Each value of 𝜣₁ corrisponds to a different straight line fit. We then derive a different value of J(𝜣₁) so each h𝜣(x) will give us another point for J(𝜣₁) towards the data point.
 
-Remember the optimisation objective for our learning algorith is to choose the value of 𝜣₁ that minimises the values of J(𝜣₁).
+Remember the optimisation objective for our learning algorithm is to choose the value of 𝜣₁ that minimises the values of J(𝜣₁).
 
 So our objective function for linear regression is 
 ```
