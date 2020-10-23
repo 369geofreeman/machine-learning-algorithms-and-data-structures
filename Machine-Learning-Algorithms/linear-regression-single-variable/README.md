@@ -232,6 +232,7 @@ And if we keep computing these values we will get something like this
 
 So, eventually our computed range of values forms what our function J(𝜣₁) looks like
 
+Basically, the sum of the least squares is the line that will fit our data the best as there was less distance to move to have become a line of best fit.
 
 ### To recap
 
