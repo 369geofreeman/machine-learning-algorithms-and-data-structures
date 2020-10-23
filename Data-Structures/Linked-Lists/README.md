@@ -1,9 +1,11 @@
 # Linked Lists
 
 
-[The full code can be found here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/Linked-Lists/linked-list.py)
+The full code can be [found here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/Linked-Lists/linked-list.py)
 
-[A collection of coding challenges involving linked lists can be found here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/Linked-Lists/Examples)
+A collection of coding challenges involving linked lists can be [found here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/Linked-Lists/Examples)
+
+#### Contents
 
 * [Overview](#Overview)
 * [Why Linked Lists?](#why-linked-lists)
