@@ -64,6 +64,28 @@ The overall structure then can be viewed as nodes chained or... LINKED together.
 
 The image below shows a linked list in its most basic form
 
+<img src="img/img3.png" alt="linked list" width="500"/>
+
+* The "head" pointer local to the list keeps teh whole list by storing a pointer to the forst node
+* The overall list is built by connecting the nodes together by their pointers
+* Each node stores one data element, an int in this example.
+* Each node also stores one "next" pointer
+* the "next" field of the last node is None indicating the end of the list
+
+So whats happening is, at the beginning the linke dlist is stored in a head pointer which points to the first node in memory, the first node points to the second, the second to third and so on until we reach the last node which has its pointer set to None to indicate the end of the list.
+
+We can access any node in the list by starting at the head and following the ".next" pointers until we reach our target. This makes accessing an element O(n) complexity which compared to an array is not very good.
+
+
+### Strengths and Weaknesses
+
+
+|            | Array                                                                               | Linked List                                                                                  |
+|------------|-------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
+| Strength   | * Random access (fast search time) * Less memory per element * Better cache locally | * Fast insertion/ deletion time * Dynamic size *Efficient memory allocation distribution     |
+|            |                                                                                     |                                                                                              |
+| Weaknesses | * Slow insertion/deletion time * Fixed size * inefficient memory allocation         | * Slow search time * More memory needed per node as additional storage required for pointers |
+
 
 
 
