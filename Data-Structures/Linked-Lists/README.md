@@ -1,0 +1,76 @@
+# Linked Lists
+
+* [Overview](#Overview)
+* [Why Linked Lists?](#why-linked-lists)
+* [What do they look like?](#what-do-they-look-like)
+* [Strengths and Weaknesses](#strengths-and-weaknesses)
+* [Big O Analysis](#big-o-analysis)
+* [Building a Linked List](#building-a-linked-list)
+
+
+### Overview
+
+Linked lists are a great introduction to data structures and the use of pointers. Even if we don't use linked lists often, the use and understanding of pointers is something that is very common, and a powerful tool to understand.
+
+Linked list problems are a nice combination of algorithms and pointer manipulation which is what we are going to dive into here.
+
+Being a linear data struture, where elements are stored at non-contiguous locations, a linked list is like a chain made of nodes and the links are pointers. pointers represent the address of a location in memory. Lets begin!
+
+
+### Why Linked Lists?
+
+First, it's a good to note that linked lists are very similar to arrays since they share collections of elements on behalf of "client" code.
+The structure stores elements of any type so the specific type isn't important, infact as Nick Parlante put it "One way to look at linked lists is to look at how arrays work and think about alternative approaches"
+
+Arrays are probably the most common data structure used to store collections of elements and although python uses lists, numpy provides a very popular way to use arrays that leverages c++ under the hood for speed. We will be refering to the numpy array for the rest of this article.
+
+A quick look at arrays will help show the strengths of a linked list so that's what we we will do
+
+An array allocates memory for all of it's elements as one block of memory heaped together. As seen below where we have an array with capacity 5.
+
+<img src="img/img1.png" alt="learning flow img" width="500"/>
+
+
+Each element in the array gets it's own space in the array and can be accessed directly, usually using the [] syntax. 
+Once the array is set up, accessing elements via the index like this "array[element]", is fast, in fact it is O(1) notation.
+
+This has some drawbacks though, More often than not, the size of the array is specified at compile time and fixed at runtime. Inserting new elements, especially at the front is expensive becausewe then need to shift all the elements to make room for the new one.
+Insersion is of O(n) complexity.
+
+A list in python is a dynamic array and when it's created, internally in memory, some capacity will be alocated. Once we are close to using up the allocated memory, the way dynamic arrays work is, due to the memory space around the allocated space being most likely used for something else, it will find a new space in the memory (ram) that can accomidate the new requirements with the additional capacity and copy all the elements over. 
+This usually looks like this 
+```
+	additional capacity = original size capacity * 2
+``` 
+
+which will fit the new elements and any additional ones that might be needed. As you probably guessed, once this new space is almost full the cycle repeats and a new, bigger sppace is found etc.
+The image below shows this
+
+<img src="img/img2.png" alt="New space img" width="500"/>
+
+
+Now before we get into how a linked list does things different to the technique of an array, lets take a quick look at the definition of pointers.
+
+A pointer stores a reference to another variable. If a pointer is not refering to anything we can expect it to be set as None.
+A linked list allocates a space for each of its elements seperatly in memory, these are usually called "nodes" or sometimes the more creatively names "linked list element"
+
+Typically a node will contain the location/address of the next element that could be anywhere in the random access memory and points to this location, rather than being bunched together like we saw earlier with the array
+
+
+The overall structure then can be viewed as nodes chained or... LINKED together. this is also the basis of many other data structures that we will cover in this repo like stacks, queus, trees etc.
+
+### What do they look like?
+
+
+The image below shows a linked list in its most basic form
+
+
+
+
+
+
+
+
+
+
+
