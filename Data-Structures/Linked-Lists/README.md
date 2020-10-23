@@ -1,5 +1,9 @@
 # Linked Lists
 
+
+[The full code can be found here]()
+
+
 * [Overview](#Overview)
 * [Why Linked Lists?](#why-linked-lists)
 * [What do they look like?](#what-do-they-look-like)
@@ -66,32 +70,94 @@ The image below shows a linked list in its most basic form
 
 <img src="img/img3.png" alt="linked list" width="500"/>
 
-* The "head" pointer local to the list keeps teh whole list by storing a pointer to the forst node
+* The "head" pointer local to the list keeps the whole list by storing a pointer to the first node
 * The overall list is built by connecting the nodes together by their pointers
 * Each node stores one data element, an int in this example.
 * Each node also stores one "next" pointer
 * the "next" field of the last node is None indicating the end of the list
 
-So whats happening is, at the beginning the linke dlist is stored in a head pointer which points to the first node in memory, the first node points to the second, the second to third and so on until we reach the last node which has its pointer set to None to indicate the end of the list.
+So whats happening is, at the beginning the linked list is stored in a head pointer which points to the first node in memory, the first node points to the second, the second to third and so on until we reach the last node which has its pointer set to None to indicate the end of the list.
+
+We can see this in the image below
+
+<img src="img/img4.png" alt="linked list" width="500"/>
 
 We can access any node in the list by starting at the head and following the ".next" pointers until we reach our target. This makes accessing an element O(n) complexity which compared to an array is not very good.
+
 
 
 ### Strengths and Weaknesses
 
 
-|            | Array                                                                               | Linked List                                                                                  |
-|------------|-------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
-| Strength   | * Random access (fast search time) * Less memory per element * Better cache locally | * Fast insertion/ deletion time * Dynamic size *Efficient memory allocation distribution     |
-|            |                                                                                     |                                                                                              |
-| Weaknesses | * Slow insertion/deletion time * Fixed size * inefficient memory allocation         | * Slow search time * More memory needed per node as additional storage required for pointers |
+
+|            | Array                              | Linked List                                                               |
+|------------|------------------------------------|---------------------------------------------------------------------------|
+|            | * Random access (fast search time) | * Fast insertion/ deletion time                                           |
+| Strength   | * Less memory per element          | * Dynamic size                                                            |
+|            | * Better cache locally             | * Efficient memory allocation distribution                                 |
+| ---------- | ---------------------------------- | ------------------------------------------------------------------------- |
+|            | * Slow insertion/deletion time     | * Slow search time                                                        |
+| Weaknesses | * Fixed size                       | * More memory needed per node as additional storage required for pointers |
+|            | * inefficient memory allocation    |                                                                           |
 
 
 
 
+### Big O Analysis
+
+|                              | Array | Linked List |
+|------------------------------|-------|-------------|
+| Cost of accessing elements   |  O(1) |     O(n)    |
+| Insert/remove from beginning |  O(n) |     O(1)    |
+| Insert/remove from end       |  O(1) |     O(n)    |
+| Insert/remove from middle    |  O(n) |     O(n)    |
 
 
 
+
+### Building a Linked List
+
+[The full code can be found here]()
+
+To begin, we will initiate two classes:
+* A Node class which represents an individual element in the list
+
+```
+ class Node:
+	def __init__(self, data=None, next=None):
+		self.data = data
+		self.next = next
+```
+It has two elements, the data the node is holding and the pointer (next) to point to the next node or None if it's the last element.
+
+* The second is the LinkedList class
+```
+class LinkedList:
+	def __init__(self):
+		self.head = None
+```
+This holds the head variable which points to the head of the linked list.
+
+Right now, as you probably guesses, our linked list is quite useless as it can't do anything yet. So let's add some methods to power this sucker up.
+
+The first method we will implement will be an append method so we can add items to our list
+```
+	def append(self, data):
+		newNode = node(data)
+		currentNode = self.head
+		
+		while currentNode.next != None:
+			currentNode = currentNode.next
+		currentNode.next = newNode
+```
+
+We add the data to the Node class creating a new node, then we iterate through the nodes using the ".next" pointer to get to each next one until we reach the end where we finally add our new node.
+
+This method is key to a lot ways we can manipulate our linked list. To find the length we can itterate in the same way counting on each itteration and returning the total.
+If we want to display all the items we can print them out on each itteration and so on.
+
+To see a collection of methods in a working code example [click here]()
+ 
 
 
 
