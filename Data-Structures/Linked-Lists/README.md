@@ -1,8 +1,9 @@
 # Linked Lists
 
 
-[The full code can be found here]()
+[The full code can be found here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/Linked-Lists/linked-list.py)
 
+[A collection of coding challenges involving linked lists can be found here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/Linked-Lists/Examples)
 
 * [Overview](#Overview)
 * [Why Linked Lists?](#why-linked-lists)
@@ -18,7 +19,7 @@ Linked lists are a great introduction to data structures and the use of pointers
 
 Linked list problems are a nice combination of algorithms and pointer manipulation which is what we are going to dive into here.
 
-Being a linear data struture, where elements are stored at non-contiguous locations, a linked list is like a chain made of nodes and the links are pointers. pointers represent the address of a location in memory. Lets begin!
+Being a linear data struture, where elements are stored at non-contiguous locations, a linked list is like a chain made of nodes and the links are pointers. Pointers represent the address of a location in memory. Lets begin!
 
 
 ### Why Linked Lists?
@@ -30,23 +31,23 @@ Arrays are probably the most common data structure used to store collections of 
 
 A quick look at arrays will help show the strengths of a linked list so that's what we we will do
 
-An array allocates memory for all of it's elements as one block of memory heaped together. As seen below where we have an array with capacity 5.
+An array allocates memory for all of it's elements as one block of memory heaped together. As seen below where we have an array with a capacity of 5.
 
 <img src="img/img1.png" alt="learning flow img" width="500"/>
 
 
 Each element in the array gets it's own space in the array and can be accessed directly, usually using the [] syntax. 
-Once the array is set up, accessing elements via the index like this "array[element]", is fast, in fact it is O(1) notation.
+Once the array is set up, accessing elements via the index like this "array[element]", is fast, in fact it is of O(1) notation.
 
-This has some drawbacks though, More often than not, the size of the array is specified at compile time and fixed at runtime. Inserting new elements, especially at the front is expensive becausewe then need to shift all the elements to make room for the new one.
+This has some drawbacks though, More often than not, the size of the array is specified at compile time and fixed at runtime. Inserting new elements, especially at the front is expensive because we then need to shift all the elements to make room for the new one.
 Insersion is of O(n) complexity.
 
-A list in python is a dynamic array and when it's created, internally in memory, some capacity will be alocated. Once we are close to using up the allocated memory, the way dynamic arrays work is, due to the memory space around the allocated space being most likely used for something else, it will find a new space in the memory (ram) that can accomidate the new requirements with the additional capacity and copy all the elements over. 
+A list in python is a dynamic array and when it's created, internally in memory, some capacity will be alocated. Once we are close to using up the allocated memory, the way dynamic arrays work is, due to the memory space around the allocated space being most likely used for something else, it will find a new space in the memory (ram) that can accommodate the new requirements with the additional capacity and copy all the elements over. 
+
 This usually looks like this 
 ```
 	additional capacity = original size capacity * 2
 ``` 
-
 which will fit the new elements and any additional ones that might be needed. As you probably guessed, once this new space is almost full the cycle repeats and a new, bigger sppace is found etc.
 The image below shows this
 
@@ -55,13 +56,13 @@ The image below shows this
 
 Now before we get into how a linked list does things different to the technique of an array, lets take a quick look at the definition of pointers.
 
-A pointer stores a reference to another variable. If a pointer is not refering to anything we can expect it to be set as None.
-A linked list allocates a space for each of its elements seperatly in memory, these are usually called "nodes" or sometimes the more creatively names "linked list element"
+A pointer stores a reference to another variable. If a pointer is not referring to anything we can expect it to be set as None.
+A linked list allocates a space for each of its elements seperatly in memory, these are usually called "nodes" or sometimes the more creatively named... "linked list element"
 
 Typically a node will contain the location/address of the next element that could be anywhere in the random access memory and points to this location, rather than being bunched together like we saw earlier with the array
 
 
-The overall structure then can be viewed as nodes chained or... LINKED together. this is also the basis of many other data structures that we will cover in this repo like stacks, queus, trees etc.
+The overall structure then can be viewed as nodes chained or... LINKED together. this is also the basis of many other data structures that we will cover in this repo like stacks, queues, trees etc.
 
 ### What do they look like?
 
@@ -72,7 +73,7 @@ The image below shows a linked list in its most basic form
 
 * The "head" pointer local to the list keeps the whole list by storing a pointer to the first node
 * The overall list is built by connecting the nodes together by their pointers
-* Each node stores one data element, an int in this example.
+* Each node stores one data element, an integer in this example.
 * Each node also stores one "next" pointer
 * the "next" field of the last node is None indicating the end of the list
 
@@ -117,7 +118,7 @@ We can access any node in the list by starting at the head and following the ".n
 
 ### Building a Linked List
 
-[The full code can be found here]()
+[The full code can be found here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/Linked-Lists/linked-list.py)
 
 To begin, we will initiate two classes:
 * A Node class which represents an individual element in the list
@@ -138,9 +139,9 @@ class LinkedList:
 ```
 This holds the head variable which points to the head of the linked list.
 
-Right now, as you probably guesses, our linked list is quite useless as it can't do anything yet. So let's add some methods to power this sucker up.
+Right now, as you probably guessed, our linked list is quite useless as it can't do anything yet. So let's add some methods to power this bad boy up.
 
-The first method we will implement will be an append method so we can add items to our list
+The first, and probably most obvious method we should implement will be an append method so we can add items to our list
 ```
 	def append(self, data):
 		newNode = node(data)
@@ -151,14 +152,14 @@ The first method we will implement will be an append method so we can add items 
 		currentNode.next = newNode
 ```
 
-We add the data to the Node class creating a new node, then we iterate through the nodes using the ".next" pointer to get to each next one until we reach the end where we finally add our new node.
+First we add the data object to the Node class creating a new instance of the class Node holding the data, then we itterate through the nodes using the ".next" pointer to get to each next one until we reach the end where we finally add our new node.
 
-This method is key to a lot ways we can manipulate our linked list. To find the length we can itterate in the same way counting on each itteration and returning the total.
+This method is key to many ways we can manipulate our linked list. To find the length we can itterate in the same way counting on each itteration and returning the total.
 If we want to display all the items we can print them out on each itteration and so on.
 
-To see a collection of methods in a working code example [click here]()
+To see a collection of such methods in a working code example [click here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/Linked-Lists/linked-list.py)
  
-
+To see a  collection of coding challenges involving linked lists [click here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/Linked-Lists/Examples)
 
 
 
