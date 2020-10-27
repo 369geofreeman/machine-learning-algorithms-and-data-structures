@@ -1,7 +1,7 @@
 # Linear Regression Single Variable
 
 # First we import the dataframe (CSV of houseprices)
-# Next we plot a scatter pliot to get an idea of the distribution
+# Next we plot a scatter plot to get an idea of the distribution
 
 
 
@@ -13,7 +13,7 @@ from sklearn import linear_model
 # First we load in the data
 df = pd.read_csv('homeprices.csv')
 
-# Here we set up a graph tpo show the data points before any predictions
+# Here we set up a graph to show the data points before any predictions
 plt.xlabel('area (sqr ft)')
 plt.ylabel('price (US$)')
 plt.scatter(df.area, df.price, color='red', marker='+')
