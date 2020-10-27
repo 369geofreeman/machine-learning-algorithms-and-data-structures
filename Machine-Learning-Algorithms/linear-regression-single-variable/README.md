@@ -2,7 +2,7 @@
 
 **Coding examples**
 
-#### [Click here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/linear-regression-single-variable/klinear-regression-from-scratch.py) To view linear Regression built from scratch and tested on the Swedish Insurance Dataset
+#### [Click here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/linear-regression-single-variable/linear-regression-from-scratch.py) To view linear Regression built from scratch and tested on the Swedish Insurance Dataset
 
 #### [Click here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/linear-regression-single-variable/lrsv.py) to view a walkthrough of how we implement linear regression using **sklearn** on a house price data set
 
