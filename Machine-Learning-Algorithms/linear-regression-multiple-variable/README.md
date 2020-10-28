@@ -28,7 +28,7 @@ In single variable linear regression we had a single feature x, the size of the 
 |        852       |        178       |
 |        ...       |        ...       |
 
-Whre x is the single vector of size inputs and y is the price (prewdiction) outputs
+Whre x is the single vector of size inputs and y is the price (prediction) outputs
 
 Our hypothesis for this looked something like this:
 ```
@@ -92,7 +92,7 @@ Previously with single variable linear regression, our hypothesis looked like th
 where x was our single feature vector.
 
 
-Now we are uning multiple features our hypothesis will look like this:
+Now we are using multiple features, our hypothesis will look like this:
 ```
 	h𝜣(x) = 𝜣₀ + 𝜣₁x₁ + 𝜣₂x₂ + 𝜣₃x₃ + 𝜣₄x₄
 ```
@@ -105,7 +105,7 @@ For a solid example, if we have:
 	h𝜣(x) = 80 + 0.1x₁ + 0.01x₂ + 3x₃ - 2x₄
 ``` 
 
-So what this is showing is that 80 (thousand) might be the base price for a house and ans then plus 100 (x₁) sollars per square foot, plus 10 dollars (x₂) per floor, plus 3 (thousand) x₃ for the 3 extra bedrooms and finally the price goes down -2 (thousand) x₄for each year it's aged.
+So what this is showing is that 80 (thousand) might be the base price for a house and then plus 100 (x₁) dollars per square foot, plus 10 dollars (x₂) per floor, plus 3 (thousand) x₃ for the 3 extra bedrooms and finally the price goes down -2 (thousand) x₄ for each year it's aged.
 Summed together we will get our prediction for the price of the house
 
 For convenence we can simplify our hypothesis. At the moment it looks like this for an n sized hypothesis:
@@ -113,7 +113,7 @@ For convenence we can simplify our hypothesis. At the moment it looks like this 
 	h𝜣 = 𝜣₀ + 𝜣₁x₁ + 𝜣₂x₂ + ,..., 𝜣𝒏x𝒏
 ```
 
-Now if we add a feature x₀ to our x's that is wqual to 1, so x₀=1, then we can transpose our matrix like so:
+Now if we add a feature x₀ to our x's that is equal to 1, so x₀=1, then we can transpose our matrix like so:
 ```
 	    |x₀|	      |𝜣₀|
 	x = |x₁| ∈ℝⁿ⁺¹    𝜣 = |𝜣₁|
@@ -141,7 +141,7 @@ This allows us to do matrix operations with 𝜣 and x very easily
 
 
 
-### Gradient decent for multiple variables
+### Gradient decent for multiple variables
 
 
 Lets quickly review what we have so far:
@@ -154,7 +154,7 @@ Lets quickly review what we have so far:
 
   * Gradient decent:
 
-We repeatedly update each parameter of 𝜣𝑗 according to 𝜣𝑗 minum alpha times the derivative term:
+We repeatedly update each parameter of 𝜣𝑗 according to 𝜣𝑗 minimum alpha times the derivative term:
 ```
 	𝜣𝑗 := 𝜣𝑗 - 𝞪 𝟃/𝟃𝜣𝑗 J(𝜣₀,...,n)
 ```
@@ -190,24 +190,25 @@ now if we plot the contors of the cost function J(𝜣) then they might look som
 
 <img src="img/img4.png" alt="plots" width="700"/>
 
-YOu can see the contors take on this skewed eliptical shape because of the large 2000-5 ratio we can cause by the big range of x₁ and small range of x₂
+You can see the contors take on this skewed eliptical shape because of the large 2000-5 ratio which can be caused by the big range of x₁ and small range of x₂
 
-If we were to run gradient decent over this it would take a very long time to converge due to it oscillating back and fourth before finding the global minimum as seen by the red line in the image above.
+If we were to run gradient decent over this, it would take a very long time to converge due to it oscillating back and fourth before finding the global minimum, as seen by the red line in the image above.
 
 So what can we do? Well, we can scale the features so they fit on a much smaller scale while still being a relevant distance between each other, for instance between -1 +1
-We could define feature of our x₁ and x₂ like this. If we take x₁ and divide it by the max feet size from our range, so 2000, and define x₂ to be the number of bedrooms divided by 5 (the max number of rooms). So if we have a house size of 1600, we divide it by 2000 to get 0.8 which fits nicely between -1, +1. and if we have 3 bedrooms, we divide them by 5 to get 0.6 which is also a good fit.
 
-This will cause the contours to be far less skewed and take on a more circular shape thus making finding the the golbal minimum much more easy as seen in the image below
+We could define features of our x₁ and x₂ like this. If we take x₁ and divide it by the max feet size from our range, so 2000, and define x₂ to be the number of bedrooms divided by 5 (the max number of rooms). So if we have a house size of 1600, we divide it by 2000 to get 0.8 which fits nicely between -1, +1. and if we have 3 bedrooms, we divide them by 5 to get 0.6 which is also a good fit.
+
+This will cause the contours to be far less skewed and take on a more circular shape, thus making finding the the golbal minimum much more easy as seen in the image below
 
 
 <img src="img/img5.png" alt="Better plots" width="700"/>
 
 
-In this case we made all the features fot between 0-1 which gave us an implentation of gradient decent that converges much faster.
+In this case we made all the features fit between 0-1 which gave us an implentation of gradient decent that converges much faster.
 
 More generally, when performing feature scalling we would like to get every feature in the range -1 +1. since our features x₀ is already equal to 1, this fits nicely.
 
-There are many different ways to get our features into the -1 +1 range and we willl explore ytese further in this repo.
+There are many different ways to get our features into the -1 +1 range and we will explore these further in this repo.
 
 It's also good to note that the specific numbers -1 +1 and not important, whats important is we have our features close together. If we had features scalled to say, -4 -6 for instance, or -1 2, that would be fine too as they are of a similar close range.
 
@@ -218,7 +219,7 @@ What this does is take your xᵢ feature and replace it with μ to make the feat
 
 One final example to find the feature scale.
 
-Our learning algorithm is to estimate the price of a house in the city. If we have a feature xᵢ that we want to capture the age of the house. All the houses in our traniong set have an age of 30-50 years, with an average of 38 years
+Our learning algorithm is to estimate the price of a house in the city. If we have a feature xᵢ that we want to capture the age of the house. All the houses in our training set have an age of 30-50 years, with an average of 38 years
 Using mean normalisation and feature scaling we can use 
 ```
 	     age of house - 38
@@ -228,7 +229,7 @@ Using mean normalisation and feature scaling we can use
 Where 38 is the average age
 20 is the difference in ages between the house range
 ```
-If our ho8use was 36 years old , then this equation would give us -0.1 as a result which fits nicely between -1 ans +1
+If our house was 36 years old , then this equation would give us -0.1 as a result which fits nicely between -1 ans +1
 
 
 
@@ -236,14 +237,14 @@ If our ho8use was 36 years old , then this equation would give us -0.1 as a resu
 
 Now lets look into another method to get gradient decent to work efficiently, the learning rate alpha (𝞪)
 
-Here is teh gradient decent update rule
+Here is the gradient decent update rule
 ```
 	𝜣𝑗 := 𝜣𝑗 - 𝞪 𝟃/𝟃𝑗 J(𝜣)
 ``` 
 
-And we are going to elarn how to choose the learning rate 𝞪
+And we are going to learn how to choose the learning rate 𝞪
 
-Forst, here is a way to make sure gradient decent is working correctly.
+First, here is a way to make sure gradient decent is working correctly.
 The job of gradient decent is to find a value of 𝜣 that minimises the cost function J(𝜣)
 ```
 	min J(𝜣)
@@ -252,11 +253,12 @@ The job of gradient decent is to find a value of 𝜣 that minimises the cost fu
 <img src="img/img7.png" alt="mu" width="700"/>
 
 If our gradient decent is working correctly, then our J(𝜣) should be decreasing after every iteration
-Anopther thing that's useful that this can tell us, is as the values of the J(𝜣)'s level out or show little to no change, then we know that our gradient decent has more or less converged.
 
-The rate of iterations can very by a lot depending on our data, so plotting this can help a lot when visualising when we converge.
+Another thing that's useful that this can tell us, is as the values of the J(𝜣)'s level out or show little to no change, then we know that our gradient decent has more or less converged.
 
-We can also run an automatic convergence test, an algorithm to tell us if gradient decent has converged. A typical example might be to see if J(𝜣) decreases by less than 10⁻³ in one iteration. Although this can somettimes be difficault, so generally we should rely on the plots like above
+The rate of iterations can vary by a lot depending on our data, so plotting this can help to visualise when we converge.
+
+We can also run an automatic convergence test, an algorithm to tell us if gradient decent has converged. A typical example might be to see if J(𝜣) decreases by less than 10⁻³ in one iteration. Although this can somettimes be difficult, so generally we should rely on the plots like above
 
 Obviously gradient decent isn't working if we get results like below
 
@@ -286,7 +288,7 @@ So we are increasing by three fold then up 10 from the original value.
 
 ### Features and polynomial regression
 
-First lets talk about the choice of features we have and how we can get different learninh algorithms by choosing the appropriate ones.
+First lets talk about the choice of features we have and how we can get different learning algorithms by choosing the appropriate ones.
 
 For example, lets take the example of predicting the price of a house.
 We have two features, the frontage of the house and the depth of the house.
