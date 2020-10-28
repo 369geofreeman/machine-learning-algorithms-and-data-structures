@@ -18,7 +18,8 @@
 
 ### Coding Examples
 
-  * [Click here]() to see an implimentation with sklearn where we check to make sure the math is correct
+  * [Click here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/linear-regression-multiple-variable/linear-regression-multi.py) to see an implimentation with sklearn where we check to make sure the math is correct
+  * [Click here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/linear-regression-multiple-variable/salary_decider.py) for an implimentation where we predict the salary for a new emplyee with incomplete traning data
 
 
 ### Recap of linear regression with a single variable
