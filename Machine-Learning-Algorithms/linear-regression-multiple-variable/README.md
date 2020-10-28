@@ -1,11 +1,10 @@
-# Linear Regression with multiple variables
-
-
-**Coding examples coming soon**
+# Linear Regression with multiple variables
 
 
 #### Contents
 
+
+* [Coding Examples](#coding-examples)
 * [Recap of linear regression with a single variable](#recap-of-linear-regression-with-a-single-variable)
 * [Notation](#notation)
 * [Hypothesis](#hypothesis)
@@ -14,6 +13,12 @@
 * [Learning rate](#learning-rate)
 * [Features and polynomial regression](#features-and-polynomial-regression)
 
+
+
+
+### Coding Examples
+
+  * [Click here]() to see an implimentation with sklearn where we check to make sure the math is correct
 
 
 ### Recap of linear regression with a single variable
