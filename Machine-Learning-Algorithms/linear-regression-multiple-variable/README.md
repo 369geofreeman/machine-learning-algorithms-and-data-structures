@@ -12,7 +12,7 @@
 * [Feature scaling](#feature-scaling)
 * [Learning rate](#learning-rate)
 * [Features and polynomial regression](#features-and-polynomial-regression)
-
+* [The normal equation](#the-normal-equation)
 
 
 
@@ -379,3 +379,34 @@ For instannce if our size ranges from 1-10000 then
   * size³ ranges from 1 - 10⁹
 
 So it can quickly get large and out of control.
+
+
+
+### The normal equation
+
+The normal equation is an analytical approach to linear regression with a least square cost function
+
+We can directly find out the value of 𝜣 without using gradient decent. Following this approach is an effective and time-saving option when we are working with a dataset with small features
+
+**The equation looks like this**
+```
+	𝜣 = (xᵀx)⁻¹.(xᵀy)
+```
+
+The advantages against the disadvantages are as follows:
+
+| Gradient Decent                   | Normal Equation           |
+|-----------------------------------|---------------------------|
+| * Need to choose alpha            | * No need to choose alpha |
+| * Needs many iterations           | * Don't need to iterate   |
+| * Works well even when n is large | * Need to compute (xᵀx)⁻¹ |
+|                                   | * Slow if n is large      |
+
+
+The rule of thumb is to use a normal equation iif n < 10,000/50,000 otherwise it's probably safe to say we will use gradient decent.
+
+
+
+
+
+
