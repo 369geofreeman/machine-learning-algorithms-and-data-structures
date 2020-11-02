@@ -7,7 +7,7 @@
   * [Classification Introduction](#classification-introduction)
   * [How not to solve a classification problem](#how-not-to-solve-a-classification-problem)
   * [Hypostesis Representation](#hypostesis-representation)
-  * [Decission Boundry](#decission-boundry)
+  * [Decision Boundry](#decision-boundry)
   * [Non Linear Boundries](#non-linear-boundries)
   * [Logistic Regression Model](#logistic-regression-model)
 
@@ -164,7 +164,7 @@ so we use
 Which basically says it is a one if we are above half and zero otherwise
 
 
-## Decission Boundry
+## Decision Boundry
 
 
 One quick thing to note here is, given our hypothesis for linear regression
