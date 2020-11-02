@@ -164,7 +164,7 @@ so we use
 Which basically says it is a one if we are above half and zero otherwise
 
 
-## Decision Boundry
+## Decision Boundry
 
 
 One quick thing to note here is, given our hypothesis for linear regression
@@ -279,7 +279,7 @@ So basically, with more complicated data we can use more complicated boundries i
 
 
 
-## Logistic Regression Model
+## Logistic Regression Model
 
 
 **Cost function**
