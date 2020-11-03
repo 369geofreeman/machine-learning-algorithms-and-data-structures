@@ -10,6 +10,9 @@
   * [Decision Boundry](#decision-boundry)
   * [Non Linear Boundries](#non-linear-boundries)
   * [Logistic Regression Model](#logistic-regression-model)
+  * [Simplified Cost Function](#simplified-cost-function)
+  * [Advanced Optimisation](advanced-optimisation)
+  * [Multiclass Classification](multiclass-classification)
 
 
 ## Classification Introduction
@@ -333,22 +336,139 @@ Some examples are:
 
 
 
+## Simplified Cost Function
+
+So here is our overall cost function
+
+<img src="img/img13.png" alt="classification img" width="400"/>
+
+Now, because y is always equal to 0 or 1, we can simplify this equation
+
+For instance, the cost function will look like this
+```
+	cost(h𝜣(x) = - y log(log(x)) - (1-y)log(1-h𝜣(x))
+```
+
+now we need to minimise the cost function, we can do this with gradient decent.
+
+Here is the cost function
+
+
+<img src="img/img14.png" alt="classification img" width="500"/>
+
+And here is our template for gradient decent where we repeatedly update eachparameter by updating it as itself minus the learning rate, alpha (𝞪) times the derrivative term
+
+```
+want min𝜣 J(𝜣):
+
+	repeat {
+		𝜣ᵢ := 𝜣ᵢ - 𝞪 ∂/∂𝜣ᵢ J(𝜣)
+	}
+
+Siultaneously update all 𝜣's
+```
+
+Something to note here is, this equation is almost identiucal to that of linear regresion
+
+SO are they the same algorithm? For linear regression we had h(x) = 𝜣ᵀx, for gradient decent this had changed to h(x) = 1/1+e^-𝜣ᵀx
 
 
 
+## Advanced Optimisation
+
+To get gradient decent to run as fast as possible and scale much better to larger machine learning problems, we will look at some optimisations we can do.
 
 
+Here is an alternative view of what gradient decent is doing.
+
+We have some cost function J(𝜣) and we want to minimise it. Taking the input parameters 𝜣 we will compute two things; J(𝜣) and the partial derivative twerms for J=0,...,J=n,
+
+Seen here
+  * J(𝜣)
+  * ∂/∂𝜣ᵢ J(𝜣)
 
 
+So given thesetwo things gradient decent repeatedly applies the following update
+```
+	repeat {
+		𝜣ᵢ := 𝜣ᵢ - 𝞪 ∂/∂𝜣ᵢ J(𝜣)
+```
+
+Another way to think about it is we need to supply code to compute J(𝜣) and ∂/∂𝜣ᵢ J(𝜣), and then get them plugged into gradient decent which will minimise the function for us.
+
+Some other optimisation algorithms that are useful to know due to not having to pick an 𝞪 or because tey are simply much faster than gradient decent are:
+  * Conjugate Gradient
+  * BFGS
+  * L-BFGS
+
+They compute the derivative and cost function in a clever way using an inner loop that automatically picks a good learning rate (𝞪), and can even pick a different learning rate for every itteration if needed.
 
 
+## Multiclass Classification
 
 
+**Now lets see how we can get linear regression to work with multiclass classification problems**
+
+So, an example of a multiclass classification problem could be to optimise or tag your email into different folders based off of the content like so
+  * y1 = work
+  * y2 = friends
+  * y3 = family
+  * y4 = hobby
+
+or another example, if we were building an algorithm to predict the weather, we might pick
+  * y1 = sunny
+  * y2 = rainy
+  * y3 = cloudy
+  * y4 = stormy
+
+etc
 
 
+Multiclass classification looks like this, where we can see the multiple classes
+
+<img src="img/img15.png" alt="classification img" width="700"/>
+
+But how do we get a learning algorithm to work with these multiple classes?
+
+Obviously with a binary classification we can seperate the data with a line but in this case we have more than 2 classes.
+
+So to linearly seperate more than 2 classes we will use a classification method called one vs all classification
+
+Lets say we have a traning set like so:
+
+<img src="img/img16.png" alt="classification img" width="700"/>
 
 
+The idea is to turn this into 3 seperate binary classification problems.
+
+To start lets begin with class 1, where we say classes 2 and 3 are negative and class 1 is possitive, illistrated below
 
 
+<img src="img/img17.png" alt="classification img" width="600"/>
 
 
+Now we will fit a classifier h𝜣(x) that seperates the triangles as 1/possitive, and the circles as 0/negative as shown with the pink line
+
+Next we can do the same for class 2
+
+
+<img src="img/img18.png" alt="classification img" width="600"/>
+
+And lastly we would do the same for the last class, class 3 with h𝜣⁽³⁾(X), which will seperate all the classes in our case.
+
+To summerise, we have 3 classifiers, we'll fit a classifier h𝜣⁽ⁱ⁾(x), thus trying to estimate what the probability that y is equal to class i, given x;𝜣
+```
+	h𝜣⁽ⁱ⁾(x) = P(y=i | x;𝜣) (i = 1,2,3)
+```
+
+So in the first example, it was trying to predict where the triangles are and then labled them as 1 and the rest as 0. 
+What is the probability that i=1 given P(y=1 | x;𝜣). Then the same with the squares and x's.
+
+
+So we want to train a logistic regression classifier h𝜣⁽ⁱ⁾(x) for each class i, to predict the probability that y = i.
+
+On a new input x, to make a prediction, pick the class i that maximises
+```
+	max h𝜣⁽ⁱ⁾(x)
+	 i
+```
