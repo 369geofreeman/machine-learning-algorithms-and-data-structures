@@ -11,18 +11,18 @@
   * [Non Linear Boundries](#non-linear-boundries)
   * [Logistic Regression Model](#logistic-regression-model)
   * [Simplified Cost Function](#simplified-cost-function)
-  * [Advanced Optimisation](advanced-optimisation)
-  * [Multiclass Classification](multiclass-classification)
+  * [Advanced Optimisation](#advanced-optimisation)
+  * [Multiclass Classification](#multiclass-classification)
 
 
 ## Classification Introduction
 
 
-A classificatiojn problem is where the variable y, that you want to predict, is valued.
+A classification problem is where the variable y, that you want to predict, is valued.
 Classification is the process where computers group data together based on predetermined characteristics - we know this as supervised learning.
 A classic example of this is spam detection in email. We can train a machine learning algorithm with a set of spam-like emails labelled as not-spam. This way our algorithm learns what might be a spam email and dispose of it before it reaches our inbox.
 
-Classification is great with big data and is commonly used to make decissions in governments, economics, medicine and even helps to solve problems with online fraud, classifying stolen credit card information or stolken passwords to name a few. 
+Classification is great with big data and is commonly used to make decissions in governments, economics, medicine and even helps to solve problems with online fraud, classifying stolen credit card information or stolen passwords to name a few. 
 
 
 All of these problems have one thing in common, they are 'yes' or'no' answers, true or false, 0 or 1. We can view this prediction as y:
@@ -47,7 +47,7 @@ Lets look at a traning set for defining whether a tumor is malignant or benign
 <img src="img/img1.png" alt="classification img" width="700"/>
 
 
-Notice the malignancy takes on only two values, zero or no and one or yes
+Notice the malignancy takes on only two values, zero/no and one/yes
 
 
 ## How not to solve a classification problem
@@ -77,14 +77,14 @@ This looks something like this
 
 Now, we can clearly see a seperation from the malignant and benign tumor data points. So now we could just assign everything to the right of the line as 1 and 0 to the left of the line. This would correctly classify all of our points given the data so problem solved right?
 
-Well, while this works with the ideal data used here, unfortuantly data in the real world might not be so kind to us. Which is more often the case.
+Well, while this works with the ideal data used here, unfortuantly data in the real world might not be so kind to us. Which is more often than not the case.
 
 For example, if we were to have a data set like below where the data points are more spread out
 
 <img src="img/img4.png" alt="classification img" width="600"/> 
 
-We can see where we might run into problems. We can clearly see some of the possitive data points will be missclassified as benign tumors which is obviously not good.
-So although linear regression is great for a lot of tasks, tasks like this one are much better suited so something more advanced like a classification problem.
+We can see where we might run into problems. We can clearly see some of the positive data points will be missclassified as benign tumors which is obviously not good.
+So although linear regression is great for a lot of tasks, tasks like this one are much better suited to something more advanced like a classification problem.
 
 And that brings us to an algorithm that fits this well... The **Logistic Regression** algorithm, where the predictions are always between zero and one
 ```
@@ -103,7 +103,7 @@ Now lets look at the function we will use when working with a classification pro
 
 So, we want our classifier to output values between 0 and 1, and we need a hypothesis that satisfies this property 
 
-Ourhypothesis is similar to that of linear regression except that we have a function g()
+Our hypothesis is similar to that of linear regression except that we have a function g()
 ```
 	h𝜣(x) = g(𝜣ᵀx)
 ```
@@ -137,10 +137,10 @@ And because g(z) upwards values are between 0 and 1, we also have that h(x) must
 
 Finally, given this hypothesis representation, what we now need to do is fit the parameters 𝜣 to our data, which we will get to later.
 
-But forst , let's find out more about how we can interpret the output of our hypothesis h(x)
+But first , let's find out more about how we can interpret the output of our hypothesis h(x)
 
 
-For examp,e, if we are using the tumor classification example, and
+For example, if we are using the tumor classification example, and
 ```
 	x = |x₀| = |     1    |
 	    |x₁|   |tumor size|
@@ -178,7 +178,7 @@ One quick thing to note here is, given our hypothesis for linear regression
 
 If we where to predict y=1 so h𝜣(x) ≧ 0.5, that would mean 𝜣ᵀx ≧ 0. And if y=0 so h𝜣(x) < 0.5, then 𝜣ᵀx < 0. Because as we remember, 𝜣ᵀx is a range between -1, +1 generally.
 
-now let's use this to better understand how the hypothesis of logistic regression makes those decissions.
+Now let's use this to better understand how the hypothesis of logistic regression makes those decissions.
 
 Say we have a traning set like this
 
@@ -213,7 +213,7 @@ y=1 if
 	    𝜣ᵀx
 ```
 
-Let;s see what this means on our chart. Basically, x₁+x₂ = 3 is the equation for a line, and we can draw that on our graph like so
+Let's see what this means on our chart. Basically, x₁+x₂ = 3 is the equation for a line, and we can draw that on our graph like so
 
 
 <img src="img/img7.png" alt="classification img" width="600"/>
@@ -299,7 +299,7 @@ What we are looking for is a cost function that is convex. So a nice smooth curv
 
 Now, because of our sigmoid function being non-linear, we can't use a square error cost function otherwise we will end up with it being non-convex
 
-So what we will our cost function look like?
+So what will our cost function look like?
 
 ```
 			{ -log(h𝜣))     if y = 1
@@ -307,8 +307,8 @@ So what we will our cost function look like?
 			{ -log(1-h𝜣(x)) if y = 0
 ```
 
-This basically means that the penalty that the algorithm pays, say if h(x) = 0.7 for instance, and that would be y=1, then -log(h𝜣(x)). 
-The penalty it pays it higher the further away from 1 it is, in this case 0.3
+This basically means the penalty that the algorithm pays, say if h(x) = 0.7 for instance, and that would be y=1, then -log(h𝜣(x)). 
+The penalty it pays is higher the further away from 1 it is, in this case 0.3
 
 To better visualise this, let's look at it plotted below
 
@@ -356,7 +356,7 @@ Here is the cost function
 
 <img src="img/img14.png" alt="classification img" width="500"/>
 
-And here is our template for gradient decent where we repeatedly update eachparameter by updating it as itself minus the learning rate, alpha (𝞪) times the derrivative term
+And here is our template for gradient decent where we repeatedly update each parameter by updating it as itself minus the learning rate, alpha (𝞪) times the derrivative term
 
 ```
 want min𝜣 J(𝜣):
@@ -365,12 +365,12 @@ want min𝜣 J(𝜣):
 		𝜣ᵢ := 𝜣ᵢ - 𝞪 ∂/∂𝜣ᵢ J(𝜣)
 	}
 
-Siultaneously update all 𝜣's
+Simultaneously update all 𝜣's
 ```
 
-Something to note here is, this equation is almost identiucal to that of linear regresion
+Something to note here is, this equation is almost identical to that of linear regresion
 
-SO are they the same algorithm? For linear regression we had h(x) = 𝜣ᵀx, for gradient decent this had changed to h(x) = 1/1+e^-𝜣ᵀx
+So are they the same algorithm? For linear regression we had h(x) = 𝜣ᵀx, for gradient decent this had changed to h(x) = 1/1+e^-𝜣ᵀx
 
 
 
@@ -381,14 +381,14 @@ To get gradient decent to run as fast as possible and scale much better to large
 
 Here is an alternative view of what gradient decent is doing.
 
-We have some cost function J(𝜣) and we want to minimise it. Taking the input parameters 𝜣 we will compute two things; J(𝜣) and the partial derivative twerms for J=0,...,J=n,
+We have some cost function J(𝜣) and we want to minimise it. Taking the input parameters 𝜣 we will compute two things; J(𝜣) and the partial derivative terms for J=0,...,J=n,
 
 Seen here
   * J(𝜣)
   * ∂/∂𝜣ᵢ J(𝜣)
 
 
-So given thesetwo things gradient decent repeatedly applies the following update
+So given these two things, gradient decent repeatedly applies the following update
 ```
 	repeat {
 		𝜣ᵢ := 𝜣ᵢ - 𝞪 ∂/∂𝜣ᵢ J(𝜣)
@@ -401,10 +401,10 @@ Some other optimisation algorithms that are useful to know due to not having to 
   * BFGS
   * L-BFGS
 
-They compute the derivative and cost function in a clever way using an inner loop that automatically picks a good learning rate (𝞪), and can even pick a different learning rate for every itteration if needed.
+They compute the derivative and cost function in a clever way using an inner loop that automatically picks a good learning rate (𝞪), and can even pick a different learning rate for every iteration if needed.
 
 
-## Multiclass Classification
+## Multiclass Classification
 
 
 **Now lets see how we can get linear regression to work with multiclass classification problems**
@@ -432,16 +432,16 @@ But how do we get a learning algorithm to work with these multiple classes?
 
 Obviously with a binary classification we can seperate the data with a line but in this case we have more than 2 classes.
 
-So to linearly seperate more than 2 classes we will use a classification method called one vs all classification
+So to linearly seperate more than 2 classes we will use a classification method called **One vs All** classification
 
-Lets say we have a traning set like so:
+Lets say we have a training set like so:
 
 <img src="img/img16.png" alt="classification img" width="700"/>
 
 
 The idea is to turn this into 3 seperate binary classification problems.
 
-To start lets begin with class 1, where we say classes 2 and 3 are negative and class 1 is possitive, illistrated below
+To start lets begin with class 1, where we say classes 2 and 3 are negative and class 1 is possitive, illustrated below
 
 
 <img src="img/img17.png" alt="classification img" width="600"/>
