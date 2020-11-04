@@ -1,5 +1,11 @@
 #=============== Cost function ============#
 
+# Below we implement the cost function and gradient
+
+# The cost function evaluates the performance of the model on the training data given a set of model parameters
+
+# The gradient computes the model parameters to figure out how to change the parameters to improve the outcome of the model on the training data
+
 
 #==== imports ====#
 
@@ -13,6 +19,7 @@ import os
 import math
 # Import our sigmoid function
 from sigmoid import sigmoid
+
 
 #====  Load data ====#
 
@@ -56,13 +63,8 @@ def costFunction(theta, X, y):
     grad : array_like
         A vector of shape (n+1, ) which is the gradient of the cost
         function with respect to theta, at the current values of theta.
-
-    Instructions
-    ------------
-    Compute the cost of a particular choice of theta. You should set J to
-    the cost. Compute the partial derivatives and set grad to the partial
-    derivatives of the cost w.r.t. each parameter in theta.
     """
+
     # Initialize some useful values
     m = y.size  # number of training examples
 
@@ -71,15 +73,15 @@ def costFunction(theta, X, y):
     grad = np.zeros(theta.shape)
 
     # Cost functiom
-    first = np.multiply(-y, np.log(sigmoid(np.dot(X, theta.T ))))
-    second = np.multiply((1-y), np.log(1 - sigmoid(np.dot(X, theta.T ))))
+    first = np.multiply(-y, np.log(sigmoid(np.dot(X, theta))))
+    second = np.multiply((1-y), np.log(1 - sigmoid(np.dot(X, theta))))
     J = np.sum((first-second)/m)
 
-    #Gradient
-    error = sigmoid(np.dot(X, theta.T)) - y
+    # Gradient
+    error = sigmoid(np.dot(X, theta)) - y
     for i in range(len(theta)):
-        term = np.multiply(error, X[:,i])
-        grad[i] = np.sum(term/len(X))
+        term = np.multiply(error, X[:, i])
+        grad[i] = np.sum(term/m)
 
     return J, grad
 

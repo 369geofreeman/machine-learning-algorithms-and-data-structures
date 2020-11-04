@@ -5,6 +5,10 @@
 
   * [Code Implementations](#code-implementations)
 
+
+
+**A detailed overview of Logistic Regression**
+
 ### Contents
 
   * [Classification Introduction](#classification-introduction)
@@ -22,8 +26,7 @@
 ## Code implementations
 
 - [Sigmoid Function](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/logistic-regression/code-examples/sigmoid_function.py): An example of the sigmoid function
-- [Cost Function](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/logistic-regression/code-examples/cost_function.py): A cost function (and computed gradient) for logistic regression.
-
+- [Cost Function](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/logistic-regression/code-examples/cost_function.py): The cost function (and computed gradient) for logistic regression.
 
 
 ## Classification Introduction
