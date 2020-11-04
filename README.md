@@ -1,7 +1,7 @@
 # Machine Learning Algorithms and Data Structures
 
 
-## Machine Learning Algorithms
+# Machine Learning Algorithms
 
 ### Regression
 
@@ -18,7 +18,7 @@
 
 
 
-## Data Structures
+# Data Structures
 
   * [Linked Lists](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/Linked-Lists)
 
