@@ -1,20 +1,32 @@
-# Linear Regression Single Variable
+# Linear Regression with a Single Variable
 
-**Coding examples**
+**Code implementations of the functions discussed below**
 
-#### [Click here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/linear-regression-single-variable/linear-regression-from-scratch.py) To view linear Regression built from scratch and tested on the Swedish Insurance Dataset
-
-#### [Click here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/linear-regression-single-variable/lrsv.py) to view a walkthrough of how we implement linear regression using **sklearn** on a house price data set
-
-#### [Click here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/linear-regression-single-variable/predict_multi_values.py) to view the a coding example which predicts house prices from a csv file and writes them to a new file
-
-#### [Click here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/linear-regression-single-variable/canada_per_capita_income.py) to view an example of predicting Canada's per capita income for the year 2020
+  * [Code Implementations](#code-implementations)
 
 
-### Method
+### Contents
+
+  * [Notation](#notation)
+  * [How a supervised algorithm works](#How-a-supervised-algorithm-works)
+  * [Cost Function](#Cost-Function)
+  * [Plotting the functions](#Plotting-the-functions)
+  * [To recap](#To-recap)
 
 
-**Notation**
+## Code implementations
+
+  * [Linear Regression from scratch](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/linear-regression-single-variable/linear-regression-from-scratch.py): Tested on the Swedish Insurance Dataset
+
+  * [Linear Regression with SkLearn](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/linear-regression-single-variable/lrsv.py): A walkthrough using SkLearn on a house price data set
+
+  * [Writing results to a CSV file](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/linear-regression-single-variable/predict_multi_values.py): An example which predicts house prices from a csv file and writes them to a new file
+
+  * [Prediction witha small data set](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/linear-regression-single-variable/canada_per_capita_income.py) A prediction of Canada's per capita income for the year 2020 using data up to 2014
+
+
+
+## Notation
 
 * m = Number of traning examples
 * x = 'input' variable / features
@@ -46,7 +58,7 @@ for example, from the table above:
 ```
 
 
-#### How a supervised algorithm works
+## How a supervised algorithm works
 
 We start with a traning set, like our traning set of house prices above, and we feed that to our learning algorithm.
 It's then the job of the learning algorithm to output a function. Now, the learning algorithm is usually denoted as 'h', which stands for hypothisis.
@@ -74,7 +86,7 @@ This model is called linear regression with one variable, with the one variable 
 Another name for this is called uni-variable linear regression.
 
 
-### Cost Function
+## Cost Function
 
 Remember our hypothesis **h𝜣(x) = 𝜣₀ + 𝜣₁** ?
 The 𝜣⁽ⁱ⁾'s we know as the parameters, they control the direction and height of the line in our function. But how do we choose these?
@@ -162,6 +174,9 @@ So, the two key functions we want to understand are the **h𝜣(x)** hypothesis 
 The hypothesis function is h of x. This is a function of x which in our case is, the hypothesis is a function of what the size of a house is (x)
 
 The cost function, J, which is a function of the parameter 𝜣₁, controls the slope of the line
+
+
+## Plotting the functions
 
 Lets plot these functions
 

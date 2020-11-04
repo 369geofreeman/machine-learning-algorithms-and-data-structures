@@ -6,9 +6,6 @@
   * [Code Implementations](#code-implementations)
 
 
-
-**A detailed overview of Logistic Regression**
-
 ### Contents
 
   * [Classification Introduction](#classification-introduction)
