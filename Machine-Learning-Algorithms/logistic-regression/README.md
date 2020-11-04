@@ -22,7 +22,7 @@
 **Code examples of the functions discussed below**
 
 - [Sigmoid Function](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/logistic-regression/code-examples/sigmoid_function.py): An example of the sigmoid function
-- [Cost Function](https://github.com/369geofreeman/machine-learning-algorithms-and-data-struc    tures/blob/main/Machine-Learning-Algorithms/logistic-regression/code-examples/cost_function.py): A cost function (and computed gradient) for logistic regression.
+- [Cost Function](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/logistic-regression/code-examples/cost_function.py): A cost function (and computed gradient) for logistic regression.
 
 ## Classification Introduction
 
