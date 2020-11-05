@@ -1,4 +1,6 @@
+# ------------------------------------------------------ #
 # ============= Test Logistic Regression =============== #
+# ------------------------------------------------------ #
 
 
 # - A script to test an implementation of logistic regression
@@ -15,7 +17,6 @@
 #   classified
 
 
-
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn import datasets
@@ -27,6 +28,7 @@ bc_data = datasets.load_breast_cancer()
 X, y = bc_data.data, bc_data.target
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1234)
+
 
 def accuracy(y_true, y_pred):
     accuracy = np.sum(y_true == y_pred) / len(y_true)
