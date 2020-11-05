@@ -26,7 +26,7 @@
 
 
 
-## Notation
+## Notation
 
 * m = Number of traning examples
 * x = 'input' variable / features

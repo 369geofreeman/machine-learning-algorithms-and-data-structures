@@ -1,10 +1,14 @@
 # Linear Regression with multiple variables
 
 
+
+**Code implementations of the functions discussed below**
+
+  * [Code Implementations](#code-implementations)
+
+
 #### Contents
 
-
-* [Coding Examples](#coding-examples)
 * [Recap of linear regression with a single variable](#recap-of-linear-regression-with-a-single-variable)
 * [Notation](#notation)
 * [Hypothesis](#hypothesis)
@@ -18,8 +22,8 @@
 
 ### Coding Examples
 
-  * [Click here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/linear-regression-multiple-variable/linear-regression-multi.py) to see an implimentation with sklearn where we check to make sure the math is correct
-  * [Click here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/linear-regression-multiple-variable/salary_decider.py) for an implimentation where we predict the salary for a new emplyee with incomplete traning data
+  * [Linear Regression multi variable code walkthrough](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/linear-regression-multiple-variable/linear-regression-multi.py): An implimentation using sklearn where we check to make sure the math is correct
+  * [Using incomplete data sets](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/linear-regression-multiple-variable/salary_decider.py) An implimentation where we predict the salary for a new employee uisng an incomplete traning set
 
 
 ### Recap of linear regression with a single variable
