@@ -1,8 +1,8 @@
 # Stacks
 
   * [Stack](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/Stacks/code-examples/Stack.py): The stack class
-  * [Reversing data](): An example of reading data from a text file and reversing it into another text file using our Stack class
-  * [Matching Delimiters](): An example of checking the delimiters in a mathmatical expresion are balances using our Stack class
+  * [Reversing data](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/Stacks/code-examples/reversing-data.py): An example of reading data from a text file and reversing it into another text file using our Stack class
+  * [Matching Delimiters](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/Stacks/code-examples/match-delimiters.py): An example of checking the delimiters in a mathmatical expresion are balances using our Stack class
 
 
 ### Contents
@@ -27,7 +27,7 @@ But why are stacks useful as data structures in computer science? Lets find out
 
 
 
-## Why stacks?
+## Why stacks?
 
 A more concreate example in computer science would be a web browser, or more specifically how they store the address of the pages you have visited in a stack. Each time we visit a new page or site , it's address is '**pushed**' onto the '**stack**' of addresses.
 Likewise, when we press the back button, the current address is '**popped**' off of the stack and we are left with the previous page (address) we visited.
@@ -76,7 +76,7 @@ Lets look at these methods in action
 
 
 
-## Big O Time Complexity
+## Big O Time Complexity
 
 
 |   Operation  | Running Time |
@@ -156,6 +156,64 @@ For this example we will open a text file, store the contents line by line in ou
 This is a classic example of the **LIFO** protocol.
 
 [Click here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/Stacks/code-examples/reversing-data.py) to view the code with test examples
+
+
+```
+def reverseFile(file1, file2):
+    """
+    Write contents of a text file in reverse
+    order, line by line to a new file
+    """
+    S = Stack()
+    original = open(file1)
+    for line in original:
+        S.push(line.strip('\n'))
+    original.close()
+
+    # Now we push to a new file in reverse order
+    output = open(file2, 'w')
+    while not S.is_empty():
+        output.write(S.pop() + '\n')
+    output.close()
+
+
+reverseFile('file1.txt', 'file2.txt')
+
+```
+
+**2) Matching Delimiters**
+
+Another classic example where a stack shines is the problem of matching parenthesis, or delimiters for a more involved task.
+For example we want to make sure each of these has a closing partner
+  * Parenthesis: '(' and ')'
+  * Braces: '{' and '}'
+  * Brackets: '[' and ']'
+
+this is especially useful when processing arithmetic rxpressions. let's see how it's done
+
+To run the code with our stck class on multiple test, [click here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/Stacks/code-examples/match-delimiters.py)
+
+```
+def is_matched(exp):
+    """
+    Return True if all the delimiters are
+    properly matched; False otherwise
+    """
+
+    lefty = '({['
+    righty = ')}]'
+    S = Stack()
+
+    for c in exp:
+        if c in lefty:
+            S.push(c)
+        elif c in righty:
+            if S.is_empty():
+                return False
+            if righty.index(c) != lefty.index(S.pop()):
+                return False
+    return S.is_empty()
+```
 
 
 
