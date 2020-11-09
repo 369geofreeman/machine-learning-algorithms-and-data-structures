@@ -1,5 +1,7 @@
 # Stacks
 
+### Code
+
   * [Stack](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/Stacks/code-examples/Stack.py): The stack class
   * [Reversing data](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/Stacks/code-examples/reversing-data.py): An example of reading data from a text file and reversing it into another text file using our Stack class
   * [Matching Delimiters](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/Stacks/code-examples/match-delimiters.py): An example of checking the delimiters in a mathmatical expresion are balances using our Stack class
