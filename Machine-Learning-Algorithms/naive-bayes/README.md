@@ -3,13 +3,15 @@
 
 ### Code
 
-
+**Implementation from scratch**
+  * [Naive Bayes class](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/Naive_Bayes.py)
+  * [Testing script](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/Naive_Bayes_Tests.py)
 
 ### Contents
   * [Overview](#overview)
   * [Bayes Theorem](#bayes-theorem)
-  * [Use Cases](use-cases)
-  * [Naive Bayes from scratch](naive-bayes-from-scratch)
+  * [Use Cases](#use-cases)
+  * [Naive Bayes from scratch](#naive-bayes-from-scratch)
 
 
 
@@ -27,7 +29,7 @@ It's use cases are particually good where the posbability of a class is determin
 Natural lanuage processing (**NLP**) holds a number of ideal examples, a piece of text can be considered as a particular instance of a dictonary, or using an arbitrary phrase like _'One does not simply walk into mordor'_ as a google search will yield the results of the Lord of the Rings movie franchise. Basically in the case of **NLP** it understands that the user is refering to that movie despite not explicitly mentioning it. 
 
 
-Before we staep into the guts of using Naive Bayes, forst lets take a closer look at the Bayes theorem itself.
+Before we step into the guts of using Naive Bayes, forst lets take a closer look at the Bayes theorem itself.
 
 
 
@@ -36,7 +38,7 @@ Before we staep into the guts of using Naive Bayes, forst lets take a closer loo
 Bayes Theorem is widley regarded as one of the most important formulas in probability.
 Simply put, it's a way of finding a probability when we know certain other probabilities
 
-Which looks likw this
+Which looks like this
 ```
 		 P(A) P(B|A)
 	P(A|B) = ------------
@@ -53,6 +55,19 @@ When we know:
 
 For example, when we use a search engine and input something abstract like song lyrics or "Movie automatic shoe laces", it knows from lot's of other searches that most likely, people are probably looking for information about that song or movie _"Back to the future"_ in the second case. This is done using bayes theorem.
 
+
+This is how the theory looks in a more Machine Learning notation example
+```
+
+		 P(y|X).P(y)
+	P(y|X) = ------------
+		    P(X)
+
+With feature X:
+	X = (x1,x2,x3,...,xn)
+
+
+```
 
 An example from a study conducted by Daniel Kahneman and Amos Tversky illustrates this well, although later criticised, it is still a great general example.
 
