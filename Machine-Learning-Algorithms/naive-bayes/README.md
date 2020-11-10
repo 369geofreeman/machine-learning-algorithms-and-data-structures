@@ -140,19 +140,151 @@ There are 3 variants of Naive Bayes that are most common and we'll go though eac
 ##  Naive Bayes from scratch
 
 
+  * To see the full code, you can view it [here]((https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/Naive_Bayes.py)
+  * To test the code, you can [here]((https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/Naive_Bayes_Tests.py)
+
+
+**Below is a basic version of the Naive Bayes class**
+
+```
+class NaiveBayes:
+
+    def fit(self, X, y):
+        """
+        X: Traning data. Numpy ndarray, where the first
+           dimension is the num samples, second dimension
+           is num of rows
+        y: Traning labels. 1d row vector of size num of samples
+        """
+        n_samples, n_features = X.shape
+        self._classes = np.unique(y)
+        n_classes = len(self._classes)
+
+        # init mean, variance and priors
+        self._mean = np.zeros((n_classes, n_features), dtype=np.float64)
+        self._var = np.zeros((n_classes, n_features), dtype=np.float64)
+        self._priors = np.zeros(n_classes, dtype=np.float64)
+
+        for c in self._classes:
+            X_c = X[c == y]
+            self._mean[c, :] = X_c.mean(axis=0)
+            self._var[c, :] = X_c.var(axis=0)
+            self._priors[c] = X_c.shape[0] / float(n_samples)
+
+
+    def predict(self, X):
+        """
+        Takes multiple samples
+        X: Test samples
+        """
+        y_pred = [self._predict(x) for x in X]
+        return y_pred
+
+
+    def _predict(self, x):
+        """
+        Takes one sample
+        X: test samples
+        """
+        posteriors = []
+
+        for idx, c in enumerate(self._classes):
+            prior = np.log(self._priors[idx])
+            class_conditional = np.sum(np.log(self._pdf(idx, x)))
+            posteriour = prior + class_conditional
+            posteriors.append(posteriour)
+
+        return self._classes[np.argmax(posteriors)]
+
+
+    def _pdf(self, class_idx, x):
+        """
+        Probability density function
+        """
+        mean = self._mean[class_idx]
+        var = self._var[class_idx]
+        numerator = np.exp(-(x-mean) ** 2 / (2 * var))
+        denominator = np.sqrt(2*np.pi * var)
+
+        return numerator / denominator
+```
 
 
 
+Now that we have a basic understanding of how it works, lets take a look at the 3 main versions of naive bayes using the sklearn library
 
 
+## Bernoulli Naive Bayes
+
+Bernoulli naive bayes is binary distribution and it's useful when a feature can be present or absent. Ie, it can have only two possible outcomes (0,1)/(True/False) etc.
+
+The probabability looks like this:
+```
+	     p if X=1
+	P(X) 		where q=1 - p and 0<p<1
+	     q if X=0
+```
+
+the input vectors X, are assumed to be multivariate, benoulli distributed and each feature is binary and independent.
+The parameteres of the model are learned according to a frequency count. For instance, if there are n samples with m features, the probability for the iᵗʰ feature is:
+	 N𝐱⁽ⁱ⁾ counts the number of times the iᵗʰ value = 1.
+
+So:
+```
+	      N𝐱⁽ⁱ⁾ = 1
+	pⁱ =  ---------
+	          n
+```
 
 
+Lets test this with scikit-learn, first we are going to need a dummy dataset.
+
+let's generate a random n-class classification problem.
+
+Bernoulli Naive Bayes expects binary feature vectors however, the BernoulliNB class has a binarize parameter which allows us to specify a threshold that will be used internally to transform the features
+
+```
+From sklearn.datasets import make_classification
+
+nb_samples = 300
+
+X,y = make_classification(n_samples=nb_samples, n_features=2, n_informative=2, n_redundant=0)
+```
+
+Make_classification is a function that generates a random n-class classification problem. We pass it 300 for the number of samples we want to test, set it to have 2 features, both informative where none are redundent.
+
+Here is the bidimansional data set plotted to a graph
 
 
+<img src="img/img1.png" alt="Scatter plot img" width="700"/>
 
+For the binary threshold we can use 0.0 so each point can be characterised by the quadrant where it is located
 
+```
+from sklearn.naive_bayes import bernoullinb
+from sklearn.model_selection import train_test_split
 
+x_train, x_test, y_train, y_test = train_test_split(x,y, test_size=0.25)
 
+bnb = bernoullinb(binarize=0.0)
+bnb.fit(x_train, y_train)
+
+bnb.score(x_test, y_test)
+
+```
+
+The score for this particular case was 
+```
+	The score for Bernoulli Naive Bayes is: 0.92
+```
+
+which is really good. Now lets see how it binarized/seperated the data
+
+If we pass the data set as [[0,0],[0,1],[1,0],[1,1]] we should get the results in an array of [0,0,1,1]
+
+Which is exactly what we predicted.
+
+**The full code for Bernoulli Naive Bayes can be found [here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/bernoulli_nb.py)**
 
 
 
