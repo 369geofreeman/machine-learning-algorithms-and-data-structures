@@ -4,7 +4,7 @@
 
   * [Stack](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/Stacks/code-examples/Stack.py): The stack class
   * [Reversing data](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/Stacks/code-examples/reversing-data.py): An example of reading data from a text file and reversing it into another text file using our Stack class
-  * [Matching Delimiters](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/Stacks/code-examples/match-delimiters.py): An example of checking the delimiters in a mathmatical expresion are balances using our Stack class
+  * [Matching Delimiters](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/Stacks/code-examples/match-delimiters.py): An example of checking the delimiters in a mathmatical expresion are balanced using our Stack class
 
 
 ### Contents
@@ -20,10 +20,10 @@
 
 ## Overview
 
-A stack is a collection of onjects that are inserted and removed according to the **Last in First out** or (**LiFo**) principle.
-This means that we can stack as many objects as we like in our stack but removing them will have to be in the reversed order from how they were inserted
+A stack is a collection of objects that are inserted and removed according to the **Last in First out** or (**LiFo**) principle.
+This means that we can stack as many objects as we like in our stack, but removing them will have to be in the reversed order from how they were inserted
 
-A common way to think of it, is as a stack of plates in a cafeteria that are spring loaded. When we take a plate we take or '**pop**' it from the top of the stack. When we place a new plate on the stack we place or '**push**' it on the top making it the new top or last in plate.
+A common way to think of it is as a stack of plates in a cafeteria that are spring loaded. When we take a plate, we take or '**pop**' it from the top of the stack. When we place a new plate on the stack we place or '**push**' it on the top making it the new top or last in plate.
 
 But why are stacks useful as data structures in computer science? Lets find out
 
@@ -36,18 +36,23 @@ Likewise, when we press the back button, the current address is '**popped**' off
 
 Text editors use a similar system to allow us to 'undo' what we have written, reverting the document to a previous state.
 
-Basically, a stack lets you manage your data in a particular way. Other use cases inclue, reversing order, testing symmetry and recursion. We'll explore some of these below.
+Basically, a stack lets you manage your data in a particular way. Other use cases include, reversing order, testing symmetry and recursion. 
+
+**We'll explore some of these below.**
 
 
 ## Stack Methods
 
-Stacks are amounge one of the simpliest data structures and they require very few methods. In fact the only two real methods for a stack are **push** (to add an object to the top of the stack) and and **pop** (to remove an object from the top of the stack). Other methods in our stack class will be for simply viewing elements of the stack or checking to see if it is empty.
+Stacks are amonge one of the simplest data structures and they require very few methods. In fact the only two real methods for a stack are **push** (to add an object to the top of the stack) and **pop** (to remove an object from the top of the stack). Other methods in the stack class we will be implementing will be for simply viewing elements of the stack or checking to see if it is empty.
 But we shouldn't underestimate their importance as they are used for many sophisticated data structures and algorithms. 
  
-Let's take a look at a series of stack operations on an initially empty stack. We will use the two main methods:
+Let's take a look at a series of stack operations on an initially empty stack. 
+
+**We will use the two main methods:**
   * **S.push()**: Add an element
   * **S.pop()**: Remove an element
-As well as adding a few more for convenience:
+
+**As well as adding a few more for convenience:**
   * **S.top()**: View the top of object of the stack without adding or removing anything
   * **S.is_empty()**: Return True if the stack is empty
   * **len(S)**: return the number of elements in the stack
@@ -136,14 +141,14 @@ class Stack():
 
 ```
 
-The code for this can be found [here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/Stacks/code-examples/Stack.py) where we will use this class for the next examples where we test our stack to solve some problems.
+The code for this can be found [here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/Stacks/code-examples/Stack.py), We will use this class for the next examples where we test our stack to solve some problems.
 
 
 ## Reserving Capacity
 
 
 Before we jump into the examples it's worth mentioning about reserving memory capacity. 
-in some instances we might want to reserve memory cap[acity if we think our stack will be particularly large, or if know teh final size it will be.
+in some instances we might want to reserve memory capacity if we think our stack will be particularly large, or if we know the final size it will be.
 
 In our example above we started with an empty list which could append n items. But it can be more efficient to construct a list with an initial length in mind given we know the data being used
 
@@ -185,15 +190,15 @@ reverseFile('file1.txt', 'file2.txt')
 
 **2) Matching Delimiters**
 
-Another classic example where a stack shines is the problem of matching parenthesis, or delimiters for a more involved task.
+Another classic example where a stack shines, is the problem of matching parenthesis, or delimiters for a more involved task.
 For example we want to make sure each of these has a closing partner
-  * Parenthesis: '(' and ')'
-  * Braces: '{' and '}'
-  * Brackets: '[' and ']'
+  * Parenthesis: **'(' and ')'**
+  * Braces: **'{' and '}'**
+  * Brackets: **'[' and ']'**
 
-this is especially useful when processing arithmetic rxpressions. let's see how it's done
+This is especially useful when processing arithmetic expressions. let's see how it's done
 
-To run the code with our stck class on multiple test, [click here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/Stacks/code-examples/match-delimiters.py)
+To run the code with our stack class on multiple tests, [click here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/Stacks/code-examples/match-delimiters.py)
 
 ```
 def is_matched(exp):
