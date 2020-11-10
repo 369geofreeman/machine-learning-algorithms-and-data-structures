@@ -9,7 +9,8 @@
 
 **Implementations with skllearn**
   * [Bernoulli Native Bayes](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/bernoulli_nb.py)
-  * [Multinomial Naive Bayes]((https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/multinomial_nb.py)
+  * [Multinomial Naive Bayes](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/multinomial_nb.py)
+  * [Gaussian Naive Bayes](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/gaussian_nb.py)
 
 
 
@@ -20,7 +21,7 @@
   * [Naive Bayes from scratch](#naive-bayes-from-scratch)
   * [Bernoulli Naive Bayes](#bernoulli-naive-bayes)
   * [Multinomial Naive Bayes](#multinomial-naive-bayes)
-
+  * [Gaussian Naive Bayes](#gaussian-naive-bayes)
 
 
 ## Overview
@@ -327,6 +328,11 @@ Basically, if there was one that wasn't in the traning set, it would default to 
 
 For this example we will use the 20newsgroups dataset as it's aready built into sklearn.
 
+  * To read more on it [click here](http://qwone.com/~jason/20Newsgroups/)
+  * To view an example article from the dataset [click here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/img/60818) 
+
+
+
 there are 20,000 posts split into 20 categories, a traning set containing 11,314 posts and finally a test set contaning 7,532 posts.
 
 the dictonary contains 130,107 words and each document is a vector xᵢ ∈ ℝ¹³⁰¹⁰⁷
@@ -347,15 +353,116 @@ test_data = fetch_20newsgroups_vectorized(subset='test')
 ```
 
 
+now we can initiate and train our our multinomial naive bayes model. 
+We set alpha (𝞪) to 0.01 due to our vectors being very sparse, The absence of a word can yield wrong results yet a higher value can smooth the vectors, but in this case, lots of unlikely words can negatively impact the accuracy.
+
+``` 
+from sklearn.naive_bayes import MultinomialNB
+
+mnb = MultinomialNB(alpha=0.01)
+mnb.fit(test_data['data'], train_data['target'])
+
+score = mnb.score(test_data['data'], test_data['target'])
+
+print('The score for Multinomial Naive Bayes is:', score)
+```
+The result is 0.83510
+
+As we can see, a large number of categories are detected with ease, the ones that are missclassified only seem to be ones with very similar categories, sci.electronics and comp.sys.ibm.pc.hardware for example.
+
+The full code can be found here: [Multinomial Naive Bayes](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/multinomial_nb.py)
 
 
 
+## Gaussian Naive Bayes
+
+Gaussian Naive Bayes is useful when working with continuous values whose probabilities can be modeled using gaussian distributions whose means and variants are associated with each specific class.
+
+lets use this to decide whether we should go outside today bases on the weather. Our probability of going outside looks like this:
+
+|  Weather | Temperature | Play |
+|:--------:|:-----------:|:----:|
+|   Sunny  |     Hot     |  No  |
+|   Sunny  |     Hot     |  No  |
+| Overcast |     Hot     |  Yes |
+|   Rainy  |     Mild    |  Yes |
+|   Rainy  |     Cool    |  Yes |
+|   Rainy  |     Cool    |  No  |
+| Overcast |     Cool    |  Yes |
+|   Sunny  |     Mild    |  No  |
+|   Sunny  |     Cool    |  Yes |
+|   Rainy  |     Mild    |  Yes |
+|   Sunny  |     Mild    |  Yes |
+| Overcast |     Mild    |  Yes |
+| Overcast |     Hot     |  Yes |
+|   Rainy  |     Mild    |  No  |
 
 
+The first two columns are feat1ures (weather, temprature) and the other (play) is the label.
+
+To use this we need to encode the features
+This basically means that we need to convert these string lables into numbers. Foe example 'Overcast', 'Rainy', 'Sunny' will be [0,1,2].
+This is known as **Label Encoding**
+
+We can use the built in library from sklearn for encoding labels, it will give us values between 0 and n-1 where n is the disacrete classes.
+
+```
+# Import label encoder
+from sklearn import preprocessing
+
+# create label encoder
+le = preprocessing.LabelEncoder()
+# Convert string labels int numbers
+weather_encoded = le.fit_transform(weather)
+
+print(weather_encoded)
+
+# Gives the result:
+# >>> [2 2 0 1 1 1 0 2 2 1 2 0 0 1]
+
+```
+
+In a similar way we encode temp and play too
+```
+# converting string labels into numbers
+temp_encoded = le.fit_transform(temp)
+label = le.fit_transform(play)
+
+print('Temp', temp_encoded)
+print('Play:', label)
 
 
+# Gives the result
+Temp [1 1 1 2 0 0 0 2 0 2 2 2 1 2]
+Play: [0 0 1 1 1 0 1 0 1 1 1 1 1 0]
 
+```
 
+Next we combine both features (weather and temp) into a single variable
+```
+# Combining weather and temp into a single list of tuples
+features = [list(i) for i in zip(weather_encoded, temp_encoded)]
+```
+
+Now we can generate our model
+```
+
+# Create a Gaussian Classifier
+model = GaussianNB()
+
+# Train the model using the traning sets
+model.fit(features, label)
+
+# Predict the output
+predicted = model.predict([[0, 2]])  # 0: overcast, 2: mild
+
+print('Predicted Value', predicted)
+```
+
+The output is 1 indicating our prediction was successful.
+
+We can view the code here [Gaussian Naive Bayes](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/gaussian_nb.py)
+ 
 
 
 
