@@ -7,11 +7,19 @@
   * [Naive Bayes class](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/Naive_Bayes.py)
   * [Testing script](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/Naive_Bayes_Tests.py)
 
+**Implementations with skllearn**
+  * [Bernoulli Native Bayes](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/bernoulli_nb.py)
+  * [Multinomial Naive Bayes]((https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/multinomial_nb.py)
+
+
+
 ### Contents
   * [Overview](#overview)
   * [Bayes Theorem](#bayes-theorem)
   * [Use Cases](#use-cases)
   * [Naive Bayes from scratch](#naive-bayes-from-scratch)
+  * [Bernoulli Naive Bayes](#bernoulli-naive-bayes)
+  * [Multinomial Naive Bayes](#multinomial-naive-bayes)
 
 
 
@@ -214,7 +222,7 @@ class NaiveBayes:
 Now that we have a basic understanding of how it works, lets take a look at the 3 main versions of naive bayes using the sklearn library
 
 
-## Bernoulli Naive Bayes
+## Bernoulli Naive Bayes
 
 Bernoulli naive bayes is binary distribution and it's useful when a feature can be present or absent. Ie, it can have only two possible outcomes (0,1)/(True/False) etc.
 
@@ -285,6 +293,71 @@ If we pass the data set as [[0,0],[0,1],[1,0],[1,1]] we should get the results i
 Which is exactly what we predicted.
 
 **The full code for Bernoulli Naive Bayes can be found [here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/bernoulli_nb.py)**
+
+
+
+## Multinomial Naive Bayes
+
+
+The multinomial naive bayes classifier is suitable for classification with descrete features (eg, word counts for text classification).
+
+If the feature vectors have an elements amd each of them can assume k different values with probability p𝒌 then:
+```
+					      n!
+	P(X₁ = x₁nX₂ = x₂n,...,nX𝒌 = x𝒌)  = ------- ∏p𝑗ˣⁱ
+					     ∏ᵢxᵢ!  𝑗
+```
+
+
+The probability p(x⁽ⁱ⁾|y𝑗) are computed with a frequency count which corrisponds to applying a maximum likelyhood approach.
+It's also important to note thtat we use a correction parameter, called **Laplace**, to avoid null probabilities
+```
+		     (Nx⁽ⁱ⁾ = y𝑗) + 𝞪
+	p(x⁽ⁱ⁾|y𝑗) = ----------------
+		      N(y𝑗) + m𝞪
+```
+
+the denominator is the total count of occurences of the y class in all features, pluss a correction factor which is proportional to the dimensionality of the inputs
+
+In the case of null counts, the probability (𝞪) defaults on a constant value, usually 1.0 or 0 for no smoothing.
+Basically, if there was one that wasn't in the traning set, it would default to 1.0 to give it a small probability
+
+
+**An example with text classification**
+
+For this example we will use the 20newsgroups dataset as it's aready built into sklearn.
+
+there are 20,000 posts split into 20 categories, a traning set containing 11,314 posts and finally a test set contaning 7,532 posts.
+
+the dictonary contains 130,107 words and each document is a vector xᵢ ∈ ℝ¹³⁰¹⁰⁷
+
+where each feature represents the frequency of a specific word.
+
+With respect to the dictonary, the posts are normally quite short, so the vectors are generally very sparse, with the majority of the values equal to 0.0 (meaning that a word is not present in the document)
+
+Our goal here is to train a model that is able to assign an unknown post to the right category.
+
+
+First, we'll start by loading both the traning and test data (which have already been vectorised)
+```
+from sklearn.datasets import fetch_20newsgroups_vectorized
+
+train_data = fetch_20newsgroups_vectorized(subset='train')
+test_data = fetch_20newsgroups_vectorized(subset='test')
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
