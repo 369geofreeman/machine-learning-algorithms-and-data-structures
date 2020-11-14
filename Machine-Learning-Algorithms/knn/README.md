@@ -122,8 +122,8 @@ Lets see this all together as we impliment K nearest neighbors from scratch
 ## Applying KNN to the MNist Dataset
 
 
-Let's test k nearest neighbors using the famous MNist handwritten digests dataset.
-We can import import this from sklearn . The data set containes 1,797 greyscale 8x8 images representing the digits from 0-9
+Let's test k nearest neighbors using the famous MNist handwritten digits dataset.
+We can import this from sklearn. The data set containes 1,797 greyscale 8x8 images representing the digits from 0-9
 
 Here is an example from the dataset
 
@@ -131,60 +131,171 @@ Here is an example from the dataset
 
 To find out more about it follow [this link](http://yann.lecun.com/exdb/mnist/)
 
-We will use Knn to cluster the data together and find the enarest neighbors of noisy samples.
-
-Lets load in the data set and scale it
 
 
-```
-from sklearn.datasets import load_digits
-from sklearn.preprocessing import StandardScaler
+We are going to train our model to classify unknown digits.
 
-digits = load_digits()
 
-ss = StandardScaler(with_std=False)
-X = ss.fit_transform(digits['data'])
-```
-
-We set _"with_std=False"_ to limit the process to the mean.
-
-After scaling the samples, the values are bound between -1.0 & 1.0
-
-Now we can instantiate the NearestNeighbors class and fit the model.
+First we will need to import our librarys
 
 ```
-from sklearn.neighbors import NearestNeighbors
-
-Knn = NearestNeighbors(algorithm="ball_tree", n_neighbors=25, leaf_size=30)
-
-```
-
-Now the model is fit we can expect the digits belonging to the same class will have very short distances.
-We can apply Gaussion Noise to the sample because the digits are handwritten, the deformation spread uniformly around a mean value (which should be a perfect representation of each specific digit)
-
-```
+# import the necessary packages
+from __future__ import print_function
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import classification_report
+from sklearn import datasets
+from skimage import exposure
 import numpy as np
-
-x_noise = x[50] = np.random.normal(0.0, 1.5, size=(64, ))
-
+import imutils
+import cv2
+import sklearn
+from sklearn.model_selection import train_test_split
 ```
 
-We can now use the Kneighbors function to retrieve the indexes of 25 nearest neighbors of the sample, setting the _"return_distance=True"_ allows us to also obtain the distances in ascending order.
+
+Next we can load the data and split it 25%-75% for traning and testing
 
 ```
-distances, neighbors = Knn.kneighbors(x_noise.reshape(1, -1), return_distance=True)
+# load the MNIST digits dataset
+mnist = datasets.load_digits()
 
-print(distances[0])
+# take the MNIST data and construct the training and testing split, using 75% of the
+# data for training and 25% for testing
+(trainData, testData, trainLabels, testLabels) = train_test_split(np.array(mnist.data),
+	mnist.target, test_size=0.25, random_state=42)
+
+# now, let's take 10% of the training data and use that for validation
+(trainData, valData, trainLabels, valLabels) = train_test_split(trainData, trainLabels,
+	test_size=0.1, random_state=84)
+
+# show the sizes of each data split
+print("training data points: {}".format(len(trainLabels)))
+print("validation data points: {}".format(len(valLabels)))
+print("testing data points: {}".format(len(testLabels)))
 ```
 
-The full code can be [found here]()
+This will give us the following data
+```
+training data points: 1212
+validation data points: 135
+testing data points: 450
+```
 
-The smallest distance isn't very small because of the noise, but by plotting the results we can see a confirmation of the results.
+Next we want to train our classifier
+```
+# initialize the values of k for our k-Nearest Neighbor classifier along with the
+# list of accuracies for each value of k
+kVals = range(1, 30, 2)
+accuracies = []
+ 
+# loop over various values of `k` for the k-Nearest Neighbor classifier
+for k in range(1, 30, 2):
+	# train the k-Nearest Neighbor classifier with the current value of `k`
+	model = KNeighborsClassifier(n_neighbors=k)
+	model.fit(trainData, trainLabels)
+ 
+	# evaluate the model and update the accuracies list
+	score = model.score(valData, valLabels)
+	print("k=%d, accuracy=%.2f%%" % (k, score * 100))
+	accuracies.append(score)
+ 
+# find the value of k that has the largest accuracy
+i = int(np.argmax(accuracies))
+print("k=%d achieved highest accuracy of %.2f%% on validation data" % (kVals[i],
+	accuracies[i] * 100))
+```
+
+
+This will give us the following results
+```
+training data points: 1212
+validation data points: 135
+testing data points: 450
+k=1, accuracy=99.26%
+k=3, accuracy=99.26%
+k=5, accuracy=99.26%
+k=7, accuracy=99.26%
+k=9, accuracy=99.26%
+k=11, accuracy=99.26%
+k=13, accuracy=99.26%
+k=15, accuracy=99.26%
+k=17, accuracy=98.52%
+k=19, accuracy=98.52%
+k=21, accuracy=97.78%
+k=23, accuracy=97.04%
+k=25, accuracy=97.78%
+k=27, accuracy=97.04%
+k=29, accuracy=97.04%
+```
+
+So what we want to do now is take the K with the highest accuracy and use that to re-train our knn classifier
+
+```
+# re-train our classifier using the best k value and predict the labels of the
+# test data
+model = KNeighborsClassifier(n_neighbors=kVals[i])
+model.fit(trainData, trainLabels)
+predictions = model.predict(testData)
+ 
+# show a final classification report demonstrating the accuracy of the classifier
+# for each of the digits
+print("EVALUATION ON TESTING DATA")
+print(classification_report(testLabels, predictions))
+```
+
+which gives us an impressive 98% accuracy
+
+```
+EVALUATION ON TESTING DATA
+             precision    recall  f1-score   support
+ 
+          0       1.00      1.00      1.00        43
+          1       0.95      1.00      0.97        37
+          2       1.00      1.00      1.00        38
+          3       0.98      0.98      0.98        46
+          4       0.98      0.98      0.98        55
+          5       0.98      1.00      0.99        59
+          6       1.00      1.00      1.00        45
+          7       1.00      0.98      0.99        41
+          8       0.97      0.95      0.96        38
+          9       0.96      0.94      0.95        48
+ 
+avg / total       0.98      0.98      0.98       450
+```
+
+
+Finally, we can finish by analysing some of the random redictions
+
+```
+mnist_demo.pyPython
+# loop over a few random digits
+for i in list(map(int, np.random.randint(0, high=len(testLabels), size=(5,)))):
+	# grab the image and classify it
+	image = testData[i]
+	prediction = model.predict(image.reshape(1, -1))[0]
+
+	# convert the image for a 64-dim array to an 8 x 8 image compatible with OpenCV,
+	# then resize it to 32 x 32 pixels so we can see it better
+	image = image.reshape((8, 8)).astype("uint8")
+	image = exposure.rescale_intensity(image, out_range=(0, 255))
+	image = imutils.resize(image, width=32, inter=cv2.INTER_CUBIC)
+
+	# show the prediction
+	print("I think that digit is: {}".format(prediction))
+	cv2.imshow("Image", image)
+	cv2.waitKey(0)
+```
+
+
+Which yields the follow results
+
+<img src="img/img5.png" alt=" " width="800"/>
 
 
 
+## Source
 
-
-
-
+* [Python Programmer](https://www.youtube.com/channel/UCbXgNpp0jedKWcQiULLbDTA)
+* [sklearn](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.NearestNeighbors.html?highlight=k%20nearest#sklearn.neighbors.NearestNeighbors)
+* [Saravanan Thirumuruganathan](https://saravananthirumuruganathan.wordpress.com/2010/05/17/a-detailed-introduction-to-k-nearest-neighbor-knn-algorithm/#:~:text=KNN%20is%20an%20non%20parametric,on%20the%20underlying%20data%20distribution.&text=Lack%20of%20generalization%20means%20that%20KNN%20keeps%20all%20the%20training%20data.)
 
