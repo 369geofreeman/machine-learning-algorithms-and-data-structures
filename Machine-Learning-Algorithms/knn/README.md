@@ -92,8 +92,84 @@ Lets see this all together as we impliment K nearest neighbors from scratch
 ## KNN From Scratch
 
 
-===== Coming soon ======
+The class for k nearest neighbors is below
 
+```
+class KNN:
+
+    def __init__(self, k=3):
+        self.k = k
+
+    def fit(self, X, y):
+        """
+        Will fit the training samples
+        X: Traning samples - numpy md array, m*n size
+        y: Traning labels - 1d row vector
+        """
+        self.X_train = X
+        self.y_train = y
+
+    def predict(self, X):
+        """
+        return multiple samples
+        """
+        predicted_labels = [self._predict(x) for x in X]
+        return np.array(predicted_labels)
+
+    def _predict(self, x):
+        """
+        Helper method to return one sample
+        Computes the distances
+        get k nearest samples, labels
+        get majority vote, most common class label
+        """
+        distances = [eucledean_distance(x, x_train) for x_train in self.X_train]
+        k_indices = np.argsort(distances)[:self.k]
+        k_nearest_labels = [self.y_train[i] for i in k_indices]
+        most_common = Counter(k_nearest_labels).most_common(1)
+
+        return most_common[0][0]
+
+```
+
+
+We will also need the help of a function to return the eucledean distance
+```
+def eucledean_distance(x1, x2):
+    return np.sqrt(np.sum((x1 - x2) ** 2))
+
+```
+
+We then use a file for testing it. 
+
+First we will plot the data and print the sizes and examples of the traning data and labels
+
+```
+The training data is of size (120, 4), an example of it is: [5.1 2.5 3.  1.1]
+The labels are size (120,), an example is: 1
+```
+
+Traning data plotted
+<img src="img/img6.png" alt=" " width="700"/>
+
+
+The we will import the class and test it's acuracy
+```
+from knn import KNN
+
+clf = KNN(k=3)
+clf.fit(X_train, y_train)
+predictions = clf.predict(X_test)
+
+acc = np.sum(predictions == y_test) / len(y_test)
+
+print('Accuracy of KNN model: {}%'.format(acc * 100))
+
+```
+Setting k=3 give the best result for the Iris dataset we are using, as you can see it produces an acuraccy score of 100%
+```
+Accuracy of KNN model: 100.0%
+```
 
 
 
@@ -298,4 +374,4 @@ Which yields the follow results
 * [Python Programmer](https://www.youtube.com/channel/UCbXgNpp0jedKWcQiULLbDTA)
 * [sklearn](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.NearestNeighbors.html?highlight=k%20nearest#sklearn.neighbors.NearestNeighbors)
 * [Saravanan Thirumuruganathan](https://saravananthirumuruganathan.wordpress.com/2010/05/17/a-detailed-introduction-to-k-nearest-neighbor-knn-algorithm/#:~:text=KNN%20is%20an%20non%20parametric,on%20the%20underlying%20data%20distribution.&text=Lack%20of%20generalization%20means%20that%20KNN%20keeps%20all%20the%20training%20data.)
-
+* [PyImageSearch](https://gurus.pyimagesearch.com/lesson-sample-k-nearest-neighbor-classification/)
