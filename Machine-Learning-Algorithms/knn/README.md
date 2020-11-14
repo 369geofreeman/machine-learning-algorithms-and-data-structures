@@ -4,15 +4,15 @@
 ### Code
 
 **KNN implementation from scratch**
+Building a KNN from scratch and testing it on the iris dataset
 
-BUilding a KNN from scratch and testing it on the iris dataset
   * [Knn class](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/knn/knn.py)
   * [Script for testing KNN class](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/knn/knn_test.py)
 
 
 **KNN digit recognition**
-
 An example of using sklearns KNN class to recognise handwritten dogits using the MNist dataset
+
   * [Digit Recognition](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/knn/digit_recognition.py)
 
 
@@ -218,7 +218,7 @@ Here is an example from the dataset
 
 <img src="img/img4.png" alt=" " width="800"/>
 
-To find out more, follow [this link](http://yann.lecun.com/exdb/mnist/)
+To find out more about it follow [this link](http://yann.lecun.com/exdb/mnist/)
 
 
 
