@@ -7,7 +7,7 @@ import numpy as np
 from collections import Counter
 
 
-def eucledean_distance(x1, x2):
+def euclidean_distance(x1, x2):
     return np.sqrt(np.sum((x1 - x2) ** 2))
 
 
@@ -39,7 +39,7 @@ class KNN:
         get k nearest samples, labels
         get majority vote, most common class label
         """
-        distances = [eucledean_distance(x, x_train) for x_train in self.X_train]
+        distances = [euclidean_distance(x, x_train) for x_train in self.X_train]
         k_indices = np.argsort(distances)[:self.k]
         k_nearest_labels = [self.y_train[i] for i in k_indices]
         most_common = Counter(k_nearest_labels).most_common(1)

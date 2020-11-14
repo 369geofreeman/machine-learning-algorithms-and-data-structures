@@ -3,16 +3,28 @@
 
 ### Code
 
-  ---
+**KNN implementation from scratch**
+
+BUilding a KNN from scratch and testing it on the iris dataset
+  * [Knn class](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/knn/knn.py)
+  * [Script for testing KNN class](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/knn/knn_test.py)
+
+
+**KNN digit recognition**
+
+An example of using sklearns KNN class to recognise handwritten dogits using the MNist dataset
+  * [Digit Recognition](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/knn/digit_recognition.py)
 
 
 ## Contents
   * [Overview](#overview)
   * [Algotithm](#algotithm)
   * [Distance](#distance)
-  * [KNN From Scratch](knn-from-scratch)
+  * [KNN From Scratch](#knn-from-scratch)
   * [Advantages and Disadvantages](#advantages-and-disadvantages)
-  * [Applying KNN to the MNist Dataset](applying-knn-to-the-mnist-dataset)
+  * [Applying KNN to the MNist Dataset](#applying-knn-to-the-mnist-dataset)
+  * [Source](#source)
+
 
 ## Overview
 
@@ -21,7 +33,7 @@ k nearest neighbor (Knn) is a simple classification algorithm that belongs to th
 This means that it doesn't use traning data points to make genralisations, meaning the training phase is very minimal or more commonly, non-existant which makes it very fast.
 
 A drawback of this is the learning data is kept for testing, which can be expensive to compute given large data sets.
-Knn works by finding similarities in the data. It's concidered a clustering algorithm based on the idea that samples that are close with respect to a predefined distance metric are also similar
+Knn works by finding similarities in the data. It's concidered a clustering algorithm based on the idea that samples that are close, with respect to a predefined distance metric, are also similar
 
 <img src="img/img1.png" alt=" " width="700"/>
 
@@ -30,7 +42,7 @@ In the above image we have binary data set consisting of red stars and green tri
 Knn also doesn't make any assumptions on the underlying data distribution. Ie, it's non parametric. 
 This can be very useful and is one of the main strengths Knn has. In the real world, practical data tends not to obey the typical theoretical assumptions made (eg gaussian mixtures, linearly seperable etc). So a non parametric algorithm can be very useful here
 
-We can expect to find k nearest neighbor used for text categorisation (as will see later) or text mining as a popular use case but it is used in a wide variety of instances. For example in agriculture for the evaluation of forest inventoring, forecasting the stock market / trading futures in finance and various medical practices. 
+We can expect to find k nearest neighbor used for text categorisation (as we will see later) or text mining as popular use cases, but it is used in a wide variety of instances. For example in agriculture for the evaluation of forest inventoring, forecasting the stock market / trading futures in finance and various medical practices. 
 
 Lets see how it works
 
@@ -46,12 +58,12 @@ K nearest neighbor is actually a very simple algorithm. Basically, given N trani
 Here we can see 'c' as our data point we are trying to classify, either it will be a red x or a green circle
 
 Now firstly, we need to set K to a fixed number so we know how many neighbors we want to visit and compare 'c' to. 
-We will usually set K to an odd number to avoid an even number of data sets which could create a tie leaving us witout a definite answer as to wht to classify 'c' as. 
+We will usually set K to an odd number to avoid an even number of data sets which could create a tie, leaving us witout a definite answer as to what to classify 'c' as. 
 
 So it basically works like this. If, for instance K=5, we will visit the 5 closest points (circled below)
 
 
-<img src="img/img2.png" alt=" " width="600"/>
+<img src="img/img3.png" alt=" " width="600"/>
 
 
 For the above image, we can see there are 4 red x and 1 green circle that fall into the range of K nearest neighbors (given K=5).
@@ -61,9 +73,9 @@ So given this, 'c' is most likely a red x and will be classified as one.
 Now the next logical question is how do we get the distances from 'c' to find the closest data points
 
 
-## Distance
+## Distance
 
-Well, most commonly the default metric is either euclidean **sqrt(sum((x-y)^2))** or the Minkowski **sum(|x-y|^p)^(1/p))** distance. On a side note, if we set the parameters of Minkowski equal to 1, it will produce the equivalent of using standard Manhatton distance, if we set it to 2 it will produce the equivalent of using standared Eclidean distance.
+Well, most commonly the default metric is either euclidean **sqrt(sum((x-y)^2))** or the Minkowski **sum(|x-y|^p)^(1/p))** distance. On a side note, if we set the parameters of Minkowski equal to 1, it will produce the equivalent of using standard Manhattan distance, if we set it to 2 it will produce the equivalent of using standared Eclidean distance.
 
 Heres a full list of distance metrics that the sklearn library provides
 
@@ -78,13 +90,13 @@ Heres a full list of distance metrics that the sklearn library provides
 | “mahalanobis” | MahalanobisDistance | V or VI | sqrt((x - y)' V^-1 (x - y))  |
 
 
-It's important to note that a larger P value produces shorted measures.
+It's important to note that a larger P value produces shorter measures.
 Also, if we set P=1, all components are taken into account in the same way.
 
 Finding the most appropriate value for P requires a pre-analysis of the data set and full domain knowledge. It's always recommended to test different values, comparing the results and picking the one which best represents the structure of the underlying problem.
 
 One example of the algorithm used to compute the nearest neighbours is based on a data structure called the ball tree.
-A ball centered on a sample, X, is formally equivalent to Nr(X), where r defines the radius. therefour, the tree is built by nesting smaller balls (in terms of radius) into larger ones.
+A ball centered on a sample, X, is formally equivalent to Nr(X), where r defines the radius. therefore, the tree is built by nesting smaller balls (in terms of radius) into larger ones.
 
 Lets see this all together as we impliment K nearest neighbors from scratch
 
@@ -123,7 +135,7 @@ class KNN:
         get k nearest samples, labels
         get majority vote, most common class label
         """
-        distances = [eucledean_distance(x, x_train) for x_train in self.X_train]
+        distances = [euclidean_distance(x, x_train) for x_train in self.X_train]
         k_indices = np.argsort(distances)[:self.k]
         k_nearest_labels = [self.y_train[i] for i in k_indices]
         most_common = Counter(k_nearest_labels).most_common(1)
@@ -133,9 +145,9 @@ class KNN:
 ```
 
 
-We will also need the help of a function to return the eucledean distance
+We will also need the help of a function to return the euclidean distance
 ```
-def eucledean_distance(x1, x2):
+def euclidean_distance(x1, x2):
     return np.sqrt(np.sum((x1 - x2) ** 2))
 
 ```
@@ -166,12 +178,13 @@ acc = np.sum(predictions == y_test) / len(y_test)
 print('Accuracy of KNN model: {}%'.format(acc * 100))
 
 ```
-Setting k=3 give the best result for the Iris dataset we are using, as you can see it produces an acuraccy score of 100%
+Setting k=3 give the best result for the Iris dataset we are using, as you can see it produces an accuracy score of 100%
 ```
 Accuracy of KNN model: 100.0%
 ```
 
-
+  * To view the full code [click here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/knn/knn.py)
+  * To view ot the testing file [click here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/knn/knn_test.py)
 
 ## Advantages and Disadvantages
 
@@ -189,7 +202,7 @@ Accuracy of KNN model: 100.0%
 **Disadvantages**
 
  * Gets very expensive to compute as the data set gets larger
- * Difficault to use with higher dimensions
+ * Difficult to use with higher dimensions
  * Very sensitive to noisy data
  * Accuracy depends on quality of the data
 
@@ -205,7 +218,7 @@ Here is an example from the dataset
 
 <img src="img/img4.png" alt=" " width="800"/>
 
-To find out more about it follow [this link](http://yann.lecun.com/exdb/mnist/)
+To find out more, follow [this link](http://yann.lecun.com/exdb/mnist/)
 
 
 
@@ -366,6 +379,10 @@ for i in list(map(int, np.random.randint(0, high=len(testLabels), size=(5,)))):
 Which yields the follow results
 
 <img src="img/img5.png" alt=" " width="800"/>
+
+
+To view the full code [cick here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/knn/digit_recognition.py)
+
 
 
 
