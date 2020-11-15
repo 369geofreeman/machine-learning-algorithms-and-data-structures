@@ -17,6 +17,11 @@
   * [K-Nearest Neighbors](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Machine-Learning-Algorithms/knn)
 
 
+### Neural Networks
+
+  * [Solving Xor with a Neural Netwrok](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Machine-Learning-Algorithms/neural_networks/solving_xor_nn)
+
+
 # Data Structures
 
   * [Linked Lists](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/Linked-Lists)
