@@ -39,10 +39,11 @@ Despite initally seeing very promising, it was quickly proved that perceptrons (
 
 To visulalise this let's graph it. First lets see some examples of a problem that can be linearly seperated.
 
-<img src="img/img1.png" alt=" " width="400"/>
-<img src="img/img2.png" alt=" " width="400"/>
-<img src="img/img3.png" alt=" " width="400"/>
-
+<p align="middle">
+  <img src="img/img1.png" alt=" " width="200"/>
+  <img src="img/img2.png" alt=" " width="200"/>
+  <img src="img/img3.png" alt=" " width="200"/>
+</p>
 
 
 
