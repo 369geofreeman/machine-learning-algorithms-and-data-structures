@@ -40,12 +40,49 @@ Despite initally seeing very promising, it was quickly proved that perceptrons (
 To visulalise this let's graph it. First lets see some examples of a problem that can be linearly seperated.
 
 <p align="middle">
-  <img src="img/img1.png" alt=" " width="200"/>
-  <img src="img/img2.png" alt=" " width="200"/>
-  <img src="img/img3.png" alt=" " width="200"/>
+  <img src="img/img1.png" alt=" " width="300"/>
+  <img src="img/img2.png" alt=" " width="300"/>
+  <img src="img/img3.png" alt=" " width="300"/>
 </p>
 
+As we can see, a linear classifier solves all of these examples with ease. But what about this one where we use our points from the XOR table?
 
+
+<img src="img/img4.png" alt=" " width="600"/>
+
+No linear classifier can solve this. Ie, there is no straight line that can serperate this data.
+
+We'll need to train a neural network to classify the input patterns accordingly and seperate this data using decision boundries.
+
+It's good to note that the type of decision boundry that the neural network can learn is determined by the number of hidden layers the network has. If there are no hiffen layers, like in the case of the single layer perceptron, then it can only learn linear problems.
+
+
+
+## Neural Networks
+
+
+A basic neural network with one hidden layer looks like this 
+
+<img src="img/img5.png" alt=" " width="700"/>
+
+
+This is a basic neural network that has a single layer. neural networks can get a lot more complicated than this one but this is perfect for our XOR problem.
+
+if we apply our problem to the above neural network, it looks like this
+
+
+<img src="img/img6.png" alt=" " width="700"/>
+
+
+* Input = (x₁, x₂)
+* Hidden layer = (h₁, h₂)
+* Output layer = (y)
+* Weights for h1 (hidden layer) = (20, 20)
+* Weights for h2 (hidden layer) = (-20, -20)
+* Bias for h1 = (-10)
+* Bias for h2 = (30)
+* Weights for output (y) = (20, 20)
+* Bias for output (y) = (-30)
 
 
 
