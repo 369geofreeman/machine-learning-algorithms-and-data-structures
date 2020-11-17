@@ -7,8 +7,8 @@
   * [The XOR Problem](#the-xor-problem)
   * [Neural Networks](#neural-networks)
   * [Manual Testing](#manual-testing)
-  * [Coding and the Learning Algorithm](#coding-and-the-learning-algorithm)
-
+  * [Coding the Learning Algorithm](#coding-the-learning-algorithm)
+  * [Source](#source)
 
 
 ## The XOR Problem
@@ -149,11 +149,143 @@ Now we have a solid understanding of basic nerual networks and how to use them t
 
 ## Coding the Learning Algorithm
 
+The idea behind the code for this is for it to update it's weights accordingly and eventually converge on the expected output. 
+It updates it's weights and biases based on the loss function. 
+we will be using the _square error_ loss function for this. 
+As mentioned earlier, the weights and biases are initially set randomly
+
+Each iteration will consist of three parts. First we compute the predicted output using the sigmoid function, secondly we compute the loss using square error loss, then we update the weights by (w(new) = w(old) - 𝞪∆w) and then the bias (B(new) = B(old) - 𝞪∆w).
+ And we continue this until convergence.
+
+The algorithm can be thought of as divided into two sections. The forward pass and the backwards pass, also known as backpropergation.
+
+
+**The forward pass**
+
+First let's import numpy and set up our input values and the expected output values as defined in the XOR table
+```
+import numpy as np
+
+
+inputs = np.array([[0, 0], [1, 1], [0, 1], [1, 0]])
+expected_outputs = np.array([[0], [1], [1], [0]])
+```
+
+We also need to set the epochs (number of iterations) and learning rate
+
+```
+epochs = 10000
+learning_rate = 0.1
+```
+
+Next we can set the size of our layers and initialize the weights and biases with random values
+
+```
+input_layer_neurons, hidden_layer_neurons, output_layer = 2, 2, 1
+
+hidden_weights = np.random.uniform(size=(input_layer_neurons, hidden_layer_neurons))
+hidden_bias = np.random.uniform(size=(1, hidden_layer_neurons))
+
+output_weights = np.random.uniform(size=(hidden_layer_neurons, output_layer_neurons))
+output_bias = np.random.uniform(size=(1, output_layer_neurons))
+```
+
+Next, we want to define our sigmoid function. Sigmoid is calculated as
+```
+		1
+	y = -------------
+	    1+e^(∑w₁x₁+b)
+
+Where (∑w₁x₁+b) os known as the activation function
+```
+
+So we write a function to execute this for us
+```
+	def sigmoid(x):
+		return 1/(1+np.exp(-x))
+```
+
+And we can use this to update our weights and biases by calling their calculation inside of the sigmoid function, like so
+
+```
+# hidden layer
+hidden_layer_activation = np.dot(inputs, hidden_weights)
+hidden_layer_activation += hidden_bias
+hidden_layer_output = sigmoid(hidden_layer_activation)
+
+# Output layer
+output_layer_activation = np.dot(hidden_layer_output, output_weights)
+output_layer_activation += output_bias
+predicted_output = sigmoid(output_layer_activation)
+```
+
+And this predicted output will be compared to the expected output. That makes one complete forward pass. If it is not the same as the expected output, we will update our weights and biases accourdingly using backpropergation.
+
+Backpropergation is able to do this because it computes the gradient of the loss function (square error loss in our case) with respect to the weights. 
+Basically it sees how far off the predicted value is from our expected result and penalizes the result, which it uses to update the weights and biases accourdingly. The idea is to get the loss as minimal as possible because that signifies we are close to our prediction.
+The whole operation is called gradient decent which we covered already in this repo in detail [here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Machine-Learning-Algorithms/gradient-decent)
+
+
+
+Now we can add backpropergation to our algorithm
+
+
+**The backwards Pass**
+
+
+First we will want our sigmoid_derivative function
+```
+	def sigmoid_derivative(x):
+		return x * (1-x)
+```
+now we are all set to add backpropergation
+
+``
+
+# Bacpropergation
+error = expected_output - predicted_output
+d_predicted_output = error * sigmoid_derivative(predicted_output)
+
+error_hidden_layer = d_predicted_output.dot(output_weights.T)
+d_hidden_layer = error_hidden_layer * sigmoid_derivative(hidden_layer_output)
+
+# Updating weights & biasis
+output_weights += hidden_layer_output.T.dot(d_predicted_output) * learning_rate
+outPut_bias += np.sum(d_predicted_output, axis=0, keepdims=True) * learning_rate
+hidden_weights += inputs.T.dot(d_hidden_layer) * learning_rate
+hidden_bias += np.sum(d_hidden_layer, axis=0, keepdims=True) * learning_rate
+```
+
+The proces is repeated until conversion (when predicted_output = expected_output). We normally set an epoch (number of iterations) instead of waiting for perfect conversion because as it gets close, to the prediction, the step sizes are so small we can just say they are correct
+
+We want to find the right balance for our epochs and learning rate, and this is something that takes a little trial and error to fine tune.
+
+We have set these to:
+
+* epochs = 10000
+* learnig_rate = 0.1
+
+Which shows the cost function is working very well as it finds conversion
+
+<img src="img/img9.png" alt=" " width="700"/>
+
+
+which seems to be effective enough
+
+<img src="img/img10.png" alt=" " width="700"/>
+
+
+The result showing: _Output from neural network after 10,000 epochs: [0.05570523] [0.94864089] [0.9487394] [0.05533504]_ which is close enough to [0, 1, 1, 0] to say this was a successful run.
+
+The full code can be found [here]()
 
 
 
 
+## Source
 
-
+[Victor Lavrenko](https://www.youtube.com/channel/UCs7alOMRnxhzfKAJ4JjZ7Wg)
+[Wikipedia](https://en.wikipedia.org/wiki/XOR_gate)
+[Siddhartha Dutta](https://medium.com/@siddharthapdutta)
 
 
