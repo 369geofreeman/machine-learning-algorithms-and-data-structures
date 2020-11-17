@@ -1,5 +1,9 @@
 # Solving XOR with a Neural Network
 
+**Code**
+
+[Code solving XOR](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/neural_networks/solving_xor_nn/xor_nn.py)
+[Helper code for graphs](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/neural_networks/solving_xor_nn/plots.py)
 
 
 ### Contents
@@ -15,27 +19,29 @@
 
 
 An XOR (exclusive OR gate) is a classic problem in the history of neural network research. 
-It is the problem of predicting the outputs of XOR logic gates given two binary inputs.
+It's the problem of predicting the outputs of XOR logic gates given two binary inputs.
 
 An XOR logic gate works by giving a true output only when the inputs are different from one another. 
 With x1 and x2 being the inputs and y being the output, it works as follows:
 
-| INPUT |      | OUTPUT |
-|:-----:|:----:|:------:|
-|   x1  |  x2  |    y   |
-|   0   |   0  |    0   |
-|   0   |   1  |    1   |
-|   1   |   0  |    1   |
-|   1   |   1  |    0   |
+| INPUT | INPUT | OUTPUT |
+|:-----:|:-----:|:------:|
+|   x1  |  x2   |    y   |
+|   0   |   0   |    0   |
+|   0   |   1   |    1   |
+|   1   |   0   |    1   |
+|   1   |   1   |    0   |
 
 
 For instance if we feed it [0,0] we will get 0, [0,1] = 1 etc.
 
-Back in the early days of AI research, Marvin Minsky and Seymour Papert proved this could not be solved due to, at the time, only having a single layer neural networks, notibly the perceptron.
- It is noted that this helped towards the _"AI winter"_ of the 1980's where advancements underperformed to expectations leading to a change in the way people thought about AI
+Back in the early days of AI research, Marvin Minsky and Seymour Papert proved this could not be solved due to, at the time, only having a single layer neural networks, notably the perceptron.
+ It is noted that this helped towards the _"AI winter"_ of the 1980's, where advancements underperformed to expectations leading to a change in the way people thought about AI
 
-The perceptron algorithm (invented 1958 by Frank Rosenblatt) is a linear classifier for binary classification. It is used to decide whether or not an input, represented by a vector of numbers, belongs to some specific class decide whether or not an input, represented by a vector of numbers, belongs to some specific class.
-Despite initally seeing very promising, it was quickly proved that perceptrons (at least single layer perceptrons) coulkd not be trained to recognise many classses of paterns. One being the XOR problem.
+The perceptron algorithm (invented 1958 by Frank Rosenblatt) is a linear classifier for binary classification. It is used to decide whether or not an input, represented by a vector of numbers, belongs to some specific class.
+Despite initally seeing very promising, it was quickly proved that perceptrons (at least single layer perceptrons) could not be trained to recognise many classses of paterns. One being the XOR problem.
+
+To find out more on the history of perceptrons, follow [this link](https://www.amazon.co.uk/dp/0262534770/?coliid=IC45ND8EAH5F7&colid=32M20E7YNUJ0M&psc=1&ref_=lv_ov_lig_dp_it)
 
 To visulalise this let's graph it. First lets see some examples of a problem that can be linearly seperated.
 
@@ -54,7 +60,7 @@ No linear classifier can solve this. Ie, there is no straight line that can serp
 
 We'll need to train a neural network to classify the input patterns accordingly and seperate this data using decision boundries.
 
-It's good to note that the type of decision boundry that the neural network can learn is determined by the number of hidden layers the network has. If there are no hiffen layers, like in the case of the single layer perceptron, then it can only learn linear problems.
+It's good to note that the type of decision boundry that the neural network can learn is determined by the number of hidden layers the network has. If there are no hidden layers, like in the case of the single layer perceptron, then it can only learn linear problems.
 
 
 
@@ -66,9 +72,9 @@ A basic neural network with one hidden layer looks like this
 <img src="img/img5.png" alt=" " width="800"/>
 
 
-This is a basic neural network that has a single layer. neural networks can get a lot more complicated than this one but this is perfect for our XOR problem.
+This is a basic neural network that has a single layer. Neural networks can get a lot more complicated than this one, but this is perfect for our XOR problem.
 
-if we apply our problem to the above neural network, it looks like this
+If we apply our problem to the above neural network, it looks like this
 
 
 <img src="img/img6.png" alt=" " width="800"/>
@@ -87,7 +93,7 @@ if we apply our problem to the above neural network, it looks like this
 
 
 Note that for this initial demonstration we selected the values of our weights and biases knowing they will produce the desired outcome.
- In reality we start with random values an iterate until conversion, which we will see in the coding implementation section next.
+ In reality we start with random values and iterate until conversion, which we will see in the coding implementation section next.
 
 But first, let's test this neural network by manually running through it with our pre-selected values.
 
@@ -102,7 +108,7 @@ So the initial inputs from our XOR problem are as follows
 	[1, 1]
 ```
 
-We will insert each of these into the neural network by passing them to the inputs one by one. The neurons in the network will be using the sigmoid function because it's a continuious functin that outputs avalue between 0 - 1
+We will insert each of these into the neural network by passing them to the inputs one by one. The neurons in the network will be using the sigmoid function because it's a continuous function that outputs a value between 0 - 1
 
 ```
 Sigmoid = σ()
@@ -123,7 +129,7 @@ So from our algorithm, when we passed our inputs, we got these outputs
 	[1,0] ≈ 1
 ```
 
-So what this is doing is, if we look at the first neuron (h₁), it's performing a logical OR by outputinga 1 whenever at least one of the inputs is a 1.
+What this is doing is, if we look at the first neuron (h₁), it's performing a logical OR by outputing a 1 whenever at least one of the inputs is a 1.
 The second neuron (h₂) is like the flipside of a logical OR, it outputs a 1 as long as one of the units is a 0, else it will ouput a 1.
 And (y) is basically doing an AND, it wants both inputs to be on for the output to be on. If they are both 1 we get back a 1, else 0.
 
@@ -171,7 +177,7 @@ inputs = np.array([[0, 0], [1, 1], [0, 1], [1, 0]])
 expected_outputs = np.array([[0], [1], [1], [0]])
 ```
 
-We also need to set the epochs (number of iterations) and learning rate
+We also need to set the epochs (number of iterations) and the learning rate
 
 ```
 epochs = 10000
@@ -196,7 +202,7 @@ Next, we want to define our sigmoid function. Sigmoid is calculated as
 	y = -------------
 	    1+e^(∑w₁x₁+b)
 
-Where (∑w₁x₁+b) os known as the activation function
+Where (∑w₁x₁+b) is known as the activation function
 ```
 
 So we write a function to execute this for us
@@ -219,11 +225,11 @@ output_layer_activation += output_bias
 predicted_output = sigmoid(output_layer_activation)
 ```
 
-And this predicted output will be compared to the expected output. That makes one complete forward pass. If it is not the same as the expected output, we will update our weights and biases accourdingly using backpropergation.
+And this predicted output will be compared to the expected output. That makes one complete forward pass. If it is not the same as the expected output, we will update our weights and biases accordingly using backpropergation.
 
-Backpropergation is able to do this because it computes the gradient of the loss function (square error loss in our case) with respect to the weights. 
+**Backpropergation** is able to do this because it computes the gradient of the loss function (square error loss in our case) with respect to the weights. 
 Basically it sees how far off the predicted value is from our expected result and penalizes the result, which it uses to update the weights and biases accourdingly. The idea is to get the loss as minimal as possible because that signifies we are close to our prediction.
-The whole operation is called gradient decent which we covered already in this repo in detail [here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Machine-Learning-Algorithms/gradient-decent)
+The whole operation is called gradient decent which we covered already and can be found in this repo [here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Machine-Learning-Algorithms/gradient-decent)
 
 
 
@@ -242,7 +248,7 @@ now we are all set to add backpropergation
 
 ```
 
-# Bacpropergation
+# Backpropergation
 error = expected_output - predicted_output
 d_predicted_output = error * sigmoid_derivative(predicted_output)
 
@@ -256,18 +262,20 @@ hidden_weights += inputs.T.dot(d_hidden_layer) * learning_rate
 hidden_bias += np.sum(d_hidden_layer, axis=0, keepdims=True) * learning_rate
 ```
 
-The proces is repeated until conversion (when predicted_output = expected_output). We normally set an epoch (number of iterations) instead of waiting for perfect conversion because as it gets close, to the prediction, the step sizes are so small we can just say they are correct
+The process is repeated until conversion (when predicted_output = expected_output). 
+
+We will normally set an epoch (number of iterations) instead of waiting for perfect conversion because as it gets close to the prediction, the step sizes are so small we can just say they are correct
 
 We want to find the right balance for our epochs and learning rate, and this is something that takes a little trial and error to fine tune.
 
 We have set these to:
 
 * epochs = 10000
-* learnig_rate = 0.1
+* learning_rate = 0.1
 
 Which shows the cost function is working very well as it finds conversion
 
-<img src="img/img9.png" alt=" " width="700"/>
+<img src="img/img9.png" alt=" " width="400"/>
 
 
 which seems to be effective enough
@@ -275,17 +283,18 @@ which seems to be effective enough
 <img src="img/img10.png" alt=" " width="700"/>
 
 
-The result showing: _Output from neural network after 10,000 epochs: [0.05570523] [0.94864089] [0.9487394] [0.05533504]_ which is close enough to [0, 1, 1, 0] to say this was a successful run.
+The result showing: **_Output from neural network after 10,000 epochs: [0.05570523] [0.94864089] [0.9487394] [0.05533504]_** which is close enough to [0, 1, 1, 0] to say this was a successful run.
 
-The full code can be found [here]()
+The full code can be found [here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/neural_networks/solving_xor_nn/xor_nn.py)
 
 
 
 
 ## Source
 
-[Victor Lavrenko](https://www.youtube.com/channel/UCs7alOMRnxhzfKAJ4JjZ7Wg)
-[Wikipedia](https://en.wikipedia.org/wiki/XOR_gate)
-[Siddhartha Dutta](https://medium.com/@siddharthapdutta)
+* [Perceptrons](https://www.amazon.co.uk/gp/product/0262534770?pf_rd_r=W7Z2C3BM1BE0Y7KGPWE1&pf_rd_p=51d60e31-8a98-4266-8110-94a082505848)
+* [Victor Lavrenko](https://www.youtube.com/channel/UCs7alOMRnxhzfKAJ4JjZ7Wg)
+* [Wikipedia](https://en.wikipedia.org/wiki/XOR_gate)
+* [Siddhartha Dutta](https://medium.com/@siddharthapdutta)
 
 
