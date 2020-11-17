@@ -2,8 +2,8 @@
 
 **Code**
 
-[Code solving XOR](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/neural_networks/solving_xor_nn/xor_nn.py)
-[Helper code for graphs](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/neural_networks/solving_xor_nn/plots.py)
+* [Code solving XOR](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/neural_networks/solving_xor_nn/xor_nn.py)
+* [Helper code for graphs](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/neural_networks/solving_xor_nn/plots.py)
 
 
 ### Contents
@@ -285,7 +285,7 @@ which seems to be effective enough
 
 The result showing: **_Output from neural network after 10,000 epochs: [0.05570523] [0.94864089] [0.9487394] [0.05533504]_** which is close enough to [0, 1, 1, 0] to say this was a successful run.
 
-The full code can be found [here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/neural_networks/solving_xor_nn/xor_nn.py)
+The full code for this porject can be found [here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/neural_networks/solving_xor_nn/xor_nn.py)
 
 
 
