@@ -240,7 +240,7 @@ First we will want our sigmoid_derivative function
 ```
 now we are all set to add backpropergation
 
-``
+```
 
 # Bacpropergation
 error = expected_output - predicted_output
