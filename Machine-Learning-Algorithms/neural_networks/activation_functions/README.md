@@ -23,15 +23,15 @@ Below is a collection of activation functions with a brief description of their 
 
 | Function                      | Plot                                                      | Formula                                         |
 |-------------------------------|-----------------------------------------------------------|-------------------------------------------------|
-| Hard Limit / Binary Step      | <img src="img/binary_step.png" alt=" " width="200"/>      | <img src="img/bs_f.png" alt=" " width="200"/>   |
+| Hard Limit / Binary Step      | <img src="img/binary_step.png" alt=" " width="200"/>      | <img src="img/bs_f.png" alt=" " width="120"/>   |
 | Linear                        | <img src="img/linear_function.png" alt=" " width="200"/>  | A = cx                                          |
-| Sigmoid                       | <img src="img/sigmoid_function.png" alt=" " width="200"/> | <img src="img/s_f.png" alt=" " width="200"/>    |
-| Tanh                          | <img src="img/tanh_function.png" alt=" " width="200"/>    | <img src="img/h_t.png" alt=" " width="200"/>    |
-| ArcTan                        | <img src="img/arctan.png" alt=" " width="200"/>           | <img src="img/at_f.png" alt=" " width="200"/>   |
-| ReLU                          | <img src="img/relu.png" alt=" " width="200"/>             | <img src="img/relu_f.png" alt=" " width="200"/> |
-| Leaky ReLU                    | <img src="img/leaky_relu.png" alt=" " width="200"/>       | <img src="img/lre_f.png" alt=" " width="200"/>  |
-| Exponential Linear Units, ELU | <img src="img/elu.png" alt=" " width="200"/>              | <img src="img/exl_f.png" alt=" " width="200"/>  |
-| Swish                         | <img src="img/swish.png" alt=" " width="200"/>            | <img src="img/sw_f.png" alt=" " width="200"/>   |
+| Sigmoid                       | <img src="img/sigmoid_function.png" alt=" " width="200"/> | <img src="img/s_f.png" alt=" " width="120"/>    |
+| Tanh                          | <img src="img/tanh_function.png" alt=" " width="200"/>    | <img src="img/h_t.png" alt=" " width="120"/>    |
+| ArcTan                        | <img src="img/arctan.png" alt=" " width="200"/>           | <img src="img/at_f.png" alt=" " width="120"/>   |
+| ReLU                          | <img src="img/relu.png" alt=" " width="200"/>             | <img src="img/relu_f.png" alt=" " width="120"/> |
+| Leaky ReLU                    | <img src="img/leaky_relu.png" alt=" " width="200"/>       | <img src="img/lre_f.png" alt=" " width="120"/>  |
+| Exponential Linear Units, ELU | <img src="img/elu.png" alt=" " width="200"/>              | <img src="img/exl_f.png" alt=" " width="120"/>  |
+| Swish                         | <img src="img/swish.png" alt=" " width="200"/>            | <img src="img/sw_f.png" alt=" " width="120"/>   |
 
 
 
