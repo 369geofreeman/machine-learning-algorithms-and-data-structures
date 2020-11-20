@@ -2,6 +2,8 @@
 
 Below is a collection of activation functions with a brief description of their use case and how they fit well for the required problem.
 
+The code to plot the functions can be [found here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/neural_networks/activation_functions/generate_activation_functions.py)
+
 
 ## Contents
 

@@ -19,6 +19,7 @@
 
 ### Neural Networks
 
+  * [Activation Functions](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Machine-Learning-Algorithms/neural_networks/activation_functions)
   * [Solving XOR with a Neural Netwrok](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Machine-Learning-Algorithms/neural_networks/solving_xor_nn)
 
 
