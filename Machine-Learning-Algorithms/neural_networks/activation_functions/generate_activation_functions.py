@@ -3,6 +3,16 @@
 
 # Uncomment plt of required function to see graph
 
+# Hard Limit / Binary Step
+# Linear Function
+# Sigmoid Function
+# Tanh Function
+# ArcTan Function
+# ReLU Function
+# Leaky ReLU
+# Exponential Linear Units, ELU
+# Swish
+
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -106,12 +116,22 @@ def leaky_relu_function(x):
 def elu_function(x):
     return np.vectorize(lambda x: x if x > 0 else 0.5 * (np.exp(x) - 1), otypes=[np.float])
 
-plot(elu_function(x))
+# plot(elu_function(x))
+# plt.show()
+
+
+
+# ========== Swish ========= #
+
+
+x = np.arange(-5, 5, 0.01)
+y = []
+beta = 0.9
+for i in x:
+    y.append(i*sigmoid_function(beta*i))
+
+plt.plot(x, y, c='r', lw=3)
 plt.show()
-
-
-
-
 
 
 

@@ -9,12 +9,29 @@ Below is a collection of activation functions with a brief description of their 
 * [Hard Limit / Binary Step](#hard-limit-binary-step)
 * [Linear Function](#linear-function)
 * [Sigmoid Function](#sigmoid-function)
-
+* [Tanh Function](#tanh-function)
+* [ArcTan Function](#arctan-function)
+* [ReLU Function](#relu-function)
+* [Leaky ReLU](#leaky-relu)
+* [Exponential Linear Units, ELU](exponential-linear-units-elu)
+* [Swish Function](#swish-function)
+* [Softmax Function](#softmax-function)
 
 
 ## Quick Reference Table
 
-Add table here
+
+| Function                      | Plot                                                      | Formula                                         |
+|-------------------------------|-----------------------------------------------------------|-------------------------------------------------|
+| Hard Limit / Binary Step      | <img src="img/binary_step.png" alt=" " width="200"/>      | <img src="img/bs_f.png" alt=" " width="200"/>   |
+| Linear                        | <img src="img/linear_function.png" alt=" " width="200"/>  | A = cx                                          |
+| Sigmoid                       | <img src="img/sigmoid_function.png" alt=" " width="200"/> | <img src="img/s_f.png" alt=" " width="200"/>    |
+| Tanh                          | <img src="img/tanh_function.png" alt=" " width="200"/>    | <img src="img/h_t.png" alt=" " width="200"/>    |
+| ArcTan                        | <img src="img/arctan.png" alt=" " width="200"/>           | <img src="img/at_f.png" alt=" " width="200"/>   |
+| ReLU                          | <img src="img/relu.png" alt=" " width="200"/>             | <img src="img/relu_f.png" alt=" " width="200"/> |
+| Leaky ReLU                    | <img src="img/leaky_relu.png" alt=" " width="200"/>       | <img src="img/lre_f.png" alt=" " width="200"/>  |
+| Exponential Linear Units, ELU | <img src="img/elu.png" alt=" " width="200"/>              | <img src="img/exl_f.png" alt=" " width="200"/>  |
+| Swish                         | <img src="img/swish.png" alt=" " width="200"/>            | <img src="img/sw_f.png" alt=" " width="200"/>   |
 
 
 
@@ -31,8 +48,9 @@ The hard limit or binary step activation function sets the output of the neuron 
 
 **Formula:**
 ```
-	f(x) = 1, x>=0
-     	     = 0, x<0
+	       { 1 if x ≧ 0
+	f(x) = |
+     	       { 0 if x < 0
 ```
 
 This can be coded as a simple if else statement in python
@@ -214,6 +232,27 @@ The Exponential Linear Units, ELU, is another variation of the popular ReLU func
 	    return np.vectorize(lambda x: x if x > 0 else 0.5 * (np.exp(x) - 1), otypes=[np.float])
 ``` 
 
+## Swish Functtion
+
+<img src="img/swish.png" alt=" " width="600"/>
+
+The Swish activation function was recently developed by Google and has outperformed the ReLU function in deep models with a similar level of computational efficiency. Notice that it is not monotonically increasing.
+
+**Formula**
+```
+	f(x) = x*sigmoid(βx)
+
+β is an adjustable parameter
+```
+
+**Python Impementation**
+```
+y = []
+beta = 0.9
+for i in x:
+    y.append(i*sigmoid_function(beta*i))
+
+```
 
 ## Softmax Function
 
@@ -249,4 +288,9 @@ And summed together:
 
 
 
+## Source
+
+* [MachinelearningMastery](https://machinelearningmastery.com/softmax-activation-function-with-python/)
+* [Kai Siebenrock](https://github.com/siebenrock)
+* [Dishashree Gupta](https://www.analyticsvidhya.com/blog/2020/01/fundamentals-deep-learning-activation-functions-when-to-use-them/)
 
