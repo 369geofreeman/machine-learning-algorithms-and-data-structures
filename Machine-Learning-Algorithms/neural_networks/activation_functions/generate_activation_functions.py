@@ -1,6 +1,8 @@
 # A file to generate a visulisation of a number of activation function
 # using matplotlib
 
+# Uncomment plt of required function to see graph
+
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -51,9 +53,68 @@ def sigmoid_function(x):
     return z
 
 
-plot(sigmoid_function, yaxis=(-0.4, 1.4))
+# plot(sigmoid_function, yaxis=(-0.4, 1.4))
 
+# plt.show()
+
+
+# ========= Tanh Function ========= #
+
+def tanh_function(x):
+    z = (2/(1 + np.exp(-2*x))) -1
+    return z
+
+# plot(tanh_function)
+# plt.show()
+
+
+
+# ========= Arctan Function ======== #
+
+
+def arctan(x):
+    return np.arctan(x)
+
+
+# plot(arctan)
+# plt.show()
+
+
+# ======== ReLU Function ======== #
+
+def relu_function(x):
+    return np.vectorize(lambda x: 0 if x < 0 else x, otypes=[np.float])
+
+
+# plot(relu_function(x), yaxis=(-0.4, 4))
+# plt.show()
+
+
+# ========= Leaky ReLU Function ======== #
+
+def leaky_relu_function(x):
+	return np.vectorize(lambda x: max(0.05 * x, x), otypes=[np.float])
+
+
+# plot(leaky_relu_function(x), yaxis=(-0.4, 4))
+# plt.show()
+
+
+# ======== Exponential Linear Units, ELU ======== #
+
+
+def elu_function(x):
+    return np.vectorize(lambda x: x if x > 0 else 0.5 * (np.exp(x) - 1), otypes=[np.float])
+
+plot(elu_function(x))
 plt.show()
+
+
+
+
+
+
+
 
 
 
