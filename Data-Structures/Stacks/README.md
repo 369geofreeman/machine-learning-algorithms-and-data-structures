@@ -18,6 +18,8 @@
 * [Stacks in Practice](#stacks-in-practice)
 
 
+<img src="img/stack_gif" alt="Stack gif" width="700"/>
+
 ## Overview
 
 A stack is a collection of objects that are inserted and removed according to the **Last in First out** or (**LiFo**) principle.

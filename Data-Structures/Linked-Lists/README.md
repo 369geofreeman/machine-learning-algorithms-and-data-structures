@@ -17,6 +17,12 @@ A collection of coding challenges involving linked lists can be [found here](htt
 
 ### Overview
 
+
+<img src="img/linked_list.gif" alt="Linked List gif" width="700"/>
+gif: David Landu [stackabuse.com](https://stackabuse.com/)
+
+
+
 Linked lists are a great introduction to data structures and the use of pointers. Even if we don't use linked lists often, the use and understanding of pointers is something that is very common, and a powerful tool to understand.
 
 Linked list problems are a nice combination of algorithms and pointer manipulation which is what we are going to dive into here.
