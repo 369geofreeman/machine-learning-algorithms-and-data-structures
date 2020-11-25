@@ -18,7 +18,7 @@
 * [Stacks in Practice](#stacks-in-practice)
 
 
-<img src="img/stack_gif.gif" alt="Stack gif" width="700"/>
+<img src="img/stack_gif.gif" alt="Stack gif" width="600"/>
 
 ## Overview
 

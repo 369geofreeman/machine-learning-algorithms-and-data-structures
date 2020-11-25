@@ -25,6 +25,9 @@
   * [Prediction witha small data set](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/linear-regression-single-variable/canada_per_capita_income.py) A prediction of Canada's per capita income for the year 2020 using data up to 2014
 
 
+<img src="img/lr_gif.gif" alt="Linear Regression gif" width="600"/>
+
+
 
 ## Notation
 

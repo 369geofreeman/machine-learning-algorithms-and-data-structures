@@ -19,7 +19,7 @@ A collection of coding challenges involving linked lists can be [found here](htt
 
 
 <img src="img/lined_list.gif" alt="Linked List gif" width="700"/>
-gif: David Landu [stackabuse.com](https://stackabuse.com/)
+<span style="font-size: 11px !important;">gif: David Landu [stackabuse.com](https://stackabuse.com/)</span>
 
 
 
