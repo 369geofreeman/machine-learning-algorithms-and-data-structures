@@ -7,18 +7,18 @@ The code to plot the functions can be [found here](https://github.com/369geofree
 
 ## Contents
 
-* [Quick Reference Table](#quick-referance-table)
-* [Hard Limit / Binary Step](#hard-limit-binary-step)
+* [Quick Reference Table](#quick-reference-table)
+* [Hard Limit / Binary Step](#hard-limit-/-binary-step)
 * [Linear Function](#linear-function)
 * [Sigmoid Function](#sigmoid-function)
 * [Tanh Function](#tanh-function)
 * [ArcTan Function](#arctan-function)
 * [ReLU Function](#relu-function)
 * [Leaky ReLU](#leaky-relu)
-* [Exponential Linear Units, ELU](exponential-linear-units-elu)
+* [Exponential Linear Units, ELU](#exponential-linear-units-elu)
 * [Swish Function](#swish-function)
 * [Softmax Function](#softmax-function)
-
+* [Source](#source)
 
 ## Quick Reference Table
 
@@ -234,7 +234,7 @@ The Exponential Linear Units, ELU, is another variation of the popular ReLU func
 	    return np.vectorize(lambda x: x if x > 0 else 0.5 * (np.exp(x) - 1), otypes=[np.float])
 ``` 
 
-## Swish Functtion
+## Swish Function
 
 <img src="img/swish.png" alt=" " width="600"/>
 
@@ -290,7 +290,7 @@ And summed together:
 
 
 
-## Source
+## Source
 
 * [MachinelearningMastery](https://machinelearningmastery.com/softmax-activation-function-with-python/)
 * [Kai Siebenrock](https://github.com/siebenrock)
