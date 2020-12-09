@@ -16,7 +16,90 @@ pass
 
 ## A Brief History
 
-pass
+_**"If the brain was simple enough to be understood - we would be too simple to understand it!"**_
+
+Developed in 1958 at the  Cornell Aeronautical Laboratory by Frank Rosenblatt, the Perceptron algorithm is based on a simplified model of a biological neuron.
+
+A neuron is an electrically excitable cell that communicates with other cells via specialized connections called synapses
+
+<img src="img/img0.png" alt=" " width="600"/>
+
+Here we can see a neuron is made up of Dendrite, soma and axon. Signals come through the dendrites into the soma and then goes out via the axon to other neurons
+
+Mathematically we can view a neuron like this
+
+<img src="img/img11.png" alt=" " width="600"/>
+
+The above image is from the 1943 paper _"A logical calculus of the ideas immanent in nervous activity"_ [found here](https://www.cs.cmu.edu/~./epxing/Class/10715/reading/McCulloch.and.Pitts.pdf) written by WARREN S. MCCULLOCH AND WALTER PITTS
+
+This could easily be viwed as the first real origin in the development of _thinking machines_ by modern standards. it shows us that a neuron has two incoming synaptic connections. The first, called the excitatory synapse (shown in green), transmits weighted input to the neuron. If the total number of of synaptic connections (input) exceeds the threshold, the neuron will fire.
+That is unless the second connection sends a signal. If the inhibitory synapse (second signal) does send any signal it will prevent the neuron from firing.
+
+This is a very powerful  idea and it means that using this model we can produce lots of boolean functions.
+For instance, we can show this with boolean gates which we will do now.
+
+For the following examples we will set the threshold to 2. Ie, in order to send an output pulse, each meuron must recive two excitory inputs and no inhibitory inputs.
+
+_Lines ending in a dot represent exatory connections, lines ending in a hoop represent inhibitory connections._
+
+<img src="img/img22.png" alt=" " width="500"/>
+
+
+Here we have a signal coming in from 1 (the forst neuron) that connects to the second neuron (2) with two synapses. The incoming signal is 2 which meets our threshold requirements so the second neuron is fired afterwards. This is a delay
+
+
+<img src="img/img33.png" alt=" " width="500"/>
+
+
+Now in this example we have 2 neurons (1 and 2) each connecting to neuron 3 with two synapses, if either of the two signals fire it will cause nauron 3 to fire because we again meet the threshold. This is an OR boolean gate.
+
+Now following the same logic, we can recognise the following two boolean gates as:
+
+<img src="img/img4.png" alt=" " width="500"/>
+
+AND logic gate
+
+<img src="img/img5.png" alt=" " width="500"/>
+
+1 and NOT 2 logic gate (2 cannot fire but 1 must fire)
+
+
+So using these basic units, we can construct fairly complecated boolean circuits but can this machine think or learn?
+Well no. Despite this and  proposed theories, no learning mechanism was ever produced by McCulloch and Pitts.
+
+
+A few years later in 1958,  Frank Rosenblatt came up with the algorithm for the Perceptron that was a step further than what had been created before. 
+
+here we can see a simplified mathmatical model of it
+
+
+<img src="img/img6.png" alt=" " width="700"/>
+
+
+As we can see, it more closely relates to that of a neuron cell. What makes the pecptron superiour to MacCulloch and Pitts model is the use of weights associated with the inputs.
+Basically, this means that the total input that the neuron gets is that of the weighted sum of all of the the inputs. Each input is multiplied by it's weight and all of them combined will equal the weighted sum that the neuron recieves. 
+
+if this weighted sum exceeds a predetermined threshold, then the neuron will fire.
+
+Mathmatically we can write this as:
+
+<img src="img/img7.png" alt=" " width="600"/>
+
+Upon the conception of the Perceptron, Roosenblatt assumed it could represent any boolean circuit and perform any computation. This led to extremelylarge funding from the US Navy and once the media got wind of it, extreme exageration:
+
+_"The embryo of an electronic computer that [the Navy] expects will be able to walk, talk, see, write, reproduce itself and be conscious of its existence."_ - The New York Times - 1958
+
+
+_"Frankenstien monsterdesigned by Navy that thinks"_ - Tulsa, Oklahoma Times - 1958
+
+As well as coming up with the model, Roosenblatt also provided a learning mechanism.
+He realised that if he wanted this unit to learn a specific function he could keep providing it examples of input/output pairs. If he recieved a wrong (boolean) output, he could simply adjust the weights by the difference of what the output must be and what the output really is. (We will dive further into this later). This is known as the **Perceptron learnig rule**
+
+The proved mathmatically that this converged and if the result could be represented as a boolean, it would converge to the correct solution.
+
+[This video](https://www.youtube.com/watch?v=7BtLqqJVP9w&ab_channel=ComputerweltPodcast) shows him using it to predict the gender of a person by looking at a photograph.
+
+The Perceptron could also solve the same logic gates as McCulloch & Pitts model but this hype wasnt to last
 
 
 ## Overview
