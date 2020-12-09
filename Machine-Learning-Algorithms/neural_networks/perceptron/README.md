@@ -42,24 +42,24 @@ For the following examples we will set the threshold to 2. Ie, in order to send 
 
 _Lines ending in a dot represent exatory connections, lines ending in a hoop represent inhibitory connections._
 
-<img src="img/img22.png" alt=" " width="500"/>
+<img src="img/img22.png" alt=" " width="400"/>
 
 
 Here we have a signal coming in from 1 (the forst neuron) that connects to the second neuron (2) with two synapses. The incoming signal is 2 which meets our threshold requirements so the second neuron is fired afterwards. This is a delay
 
 
-<img src="img/img33.png" alt=" " width="500"/>
+<img src="img/img33.png" alt=" " width="400"/>
 
 
 Now in this example we have 2 neurons (1 and 2) each connecting to neuron 3 with two synapses, if either of the two signals fire it will cause nauron 3 to fire because we again meet the threshold. This is an OR boolean gate.
 
 Now following the same logic, we can recognise the following two boolean gates as:
 
-<img src="img/img4.png" alt=" " width="500"/>
+<img src="img/img4.png" alt=" " width="400"/>
 
 AND logic gate
 
-<img src="img/img5.png" alt=" " width="500"/>
+<img src="img/img5.png" alt=" " width="400"/>
 
 1 and NOT 2 logic gate (2 cannot fire but 1 must fire)
 
@@ -99,7 +99,12 @@ The proved mathmatically that this converged and if the result could be represen
 
 [This video](https://www.youtube.com/watch?v=7BtLqqJVP9w&ab_channel=ComputerweltPodcast) shows him using it to predict the gender of a person by looking at a photograph.
 
-The Perceptron could also solve the same logic gates as McCulloch & Pitts model but this hype wasnt to last
+The Perceptron could also solve the same logic gates as McCulloch & Pitts model but this hype wasnt to last long.
+There was one logic gate that it couldn't solve, the XOR gate. A book published by Marvin Minsky and Seymour Papert in 1969 called _"perceptrons"_ showed solving an XOR gate with a single layer Perceptron to be impossible.
+
+This ultimatly contributed towards what is known as the AI winter, where funding dried up and slowed research when the promises of AI was not realised.
+
+It's important to note that despite the claims of a multi-layer Perceptron still not being able to solve the XOR problem (agin from Minsky and Paperts book) where not true. We explore this idea and prove it using a neural netwrok here: [Solving XOR with a Neural Network](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Machine-Learning-Algorithms/neural_networks/solving_xor_nn)
 
 
 ## Overview
