@@ -138,7 +138,7 @@ then
 	a = hardlim([-1, 1]p + b)
 
 ``` 
-It's important to understand what that the W represents the **weight matrix** which can be viwed like so:
+It's important to understand that the W represents the **weight matrix** which can be viwed like so:
 ```
 	    _ 		     _
 	    |W₁,₁ W₁,₂ ⋯ W₁,ᵣ|
@@ -163,14 +163,14 @@ The posiition of the boundry is shifted by changing the value of the bias **(b)*
 The shaded region containes all the input vectors for which the output will be 1 and the non-shaded region will be -1 for all other input vectors.
 It's important to note that the decision boundry will always be orthogonal to the weight matrix **(W)**
 
-The decision boundry between the two seperated categories can be written as the following wquation:
+The decision boundry between the two seperated categories can be written as the following equation:
 ```
 	Wp+b = 0
 ```
 
 Ultimatly the key property of the single-neuron perceptron is that it can seperate input vectors into two categories.
 
-The downside to this is of course it can ony be used to recognise patterns taht are linearly seperable.
+The downside to this is of course it can ony be used to recognise patterns that are linearly seperable.
 
 
 
@@ -179,16 +179,16 @@ The downside to this is of course it can ony be used to recognise patterns taht 
 ## Simple Pattern Recognition
 
 
-To illustrate this further we can use the classic example of using a single layer perceptron to recognise if the object given is an apple or an orange based off of 3 features that out put a +1 or -1 dependant of the outcome.
+To illustrate this further we can use the classic example of using a single layer perceptron to recognise if the object given is an apple or an orange based off of 3 features that output a +1 or -1 dependant of the outcome.
 
 The features we will be using are:
 * Weight
 * Shape - round or elliptical
 * Texture - smooth or rough 
 
-For instance, if the fruit weighs more than a predetermined amount it will out put 1, less than taht and it will be -1.
+For instance, if the fruit weighs more than a predetermined amount it will output 1, less than that and it will be -1.
 
-For the remainder of this exaple we will use 2 prototype feature vectors for an apple and an orange like so:
+For the remainder of this example we will use 2 prototype feature vectors for an apple and an orange like so:
 ```
 if
 	    | shape |
@@ -220,7 +220,7 @@ Choosing the bias is easy because we want the output to be either a -1 if it's a
 
 Next we will need a linear boundry that can seperate our oranges and apples
 
-Using our prototype apple and orange vectors we defined above, we can set our linear boundry to symetrically divide thgem with the p₁, p₃ plane shown below
+Using our prototype apple and orange vectors we defined above, we can set our linear boundry to symetrically divide them with the p₁, p₃ plane shown below
 
 
 <img src="img/img3.png" alt=" " width="600"/>
@@ -269,14 +269,14 @@ Lets pass in a misshaped orange where
 	    |-1|
 ```
 
-The responce of our perceptron would be:
+The response of our perceptron would be:
 ```
 			   |-1|
 	a = hardlim([0 1 0]|-1| + 0) = -1(orange)
 			   |-1|
 ```
 
-Again a success. We can in fact input any vectors that are closer to the perfect orange prototype (using Euclidean distance) and it will recognise it as such. The same goes for apples as well.
+Again a success. We can in fact, input any vectors that are closer to the perfect orange prototype (using Euclidean distance) and it will recognise it as such. The same goes for apples as well.
 
 
 
