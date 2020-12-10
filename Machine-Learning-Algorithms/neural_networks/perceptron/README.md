@@ -16,9 +16,11 @@ pass
 
 ## A Brief History
 
-_**"If the brain was simple enough to be understood - we would be too simple to understand it!"**_
+_**"If the brain was simple enough to be understood - we would be too simple to understand it!"**_ - Marvin Minsky
 
-Developed in 1958 at the  Cornell Aeronautical Laboratory by Frank Rosenblatt, the Perceptron algorithm is based on a simplified model of a biological neuron.
+Developed in 1958 at the  Cornell Aeronautical Laboratory by Frank Rosenblatt, the Perceptron algorithm is based on a simplified model of a biological neuron and is considered to be the first working example of a thinking machine.
+
+To understand how this concept came to be, we can look at the background leading up to the creation of the Perceptron starting with the neuron.
 
 A neuron is an electrically excitable cell that communicates with other cells via specialized connections called synapses
 
@@ -36,36 +38,36 @@ This could easily be viwed as the first real origin in the development of _think
 That is unless the second connection sends a signal. If the inhibitory synapse (second signal) does send any signal it will prevent the neuron from firing.
 
 This is a very powerful  idea and it means that using this model we can produce lots of boolean functions.
-For instance, we can show this with boolean gates which we will do now.
+For instance, we can show this with boolean gates.
 
-For the following examples we will set the threshold to 2. Ie, in order to send an output pulse, each meuron must recive two excitory inputs and no inhibitory inputs.
+For the following examples we will set the threshold to 2. Ie, in order to send an output pulse, each neuron must receive two excitory inputs and no inhibitory inputs.
 
 _Lines ending in a dot represent exatory connections, lines ending in a hoop represent inhibitory connections._
 
-<img src="img/img22.png" alt=" " width="400"/>
+<img src="img/img22.png" alt=" " width="300"/>
 
 
-Here we have a signal coming in from 1 (the forst neuron) that connects to the second neuron (2) with two synapses. The incoming signal is 2 which meets our threshold requirements so the second neuron is fired afterwards. This is a delay
+Here we have a signal coming in from 1 (the first neuron) that connects to the second neuron (2) with two synapses. The incoming signal is 2 which meets our threshold requirements so the second neuron is fired afterwards. This is a **delay**
 
 
-<img src="img/img33.png" alt=" " width="400"/>
+<img src="img/img33.png" alt=" " width="300"/>
 
 
-Now in this example we have 2 neurons (1 and 2) each connecting to neuron 3 with two synapses, if either of the two signals fire it will cause nauron 3 to fire because we again meet the threshold. This is an OR boolean gate.
+Now in this example we have 2 neurons (1 and 2) each connecting to neuron 3 with two synapses, if either of the two signals fire it will cause nauron 3 to fire because we again meet the threshold. This is an **OR boolean gate.**
 
 Now following the same logic, we can recognise the following two boolean gates as:
 
-<img src="img/img4.png" alt=" " width="400"/>
+<img src="img/img4.png" alt=" " width="300"/>
 
-AND logic gate
+**AND logic gate**
 
-<img src="img/img5.png" alt=" " width="400"/>
+<img src="img/img5.png" alt=" " width="300"/>
 
-1 and NOT 2 logic gate (2 cannot fire but 1 must fire)
+**1 and NOT 2 logic gate (2 cannot fire but 1 must fire)**
 
 
 So using these basic units, we can construct fairly complecated boolean circuits but can this machine think or learn?
-Well no. Despite this and  proposed theories, no learning mechanism was ever produced by McCulloch and Pitts.
+Well no. Despite this and  proposed theories, no learning mechanism was ever produced by McCulloch and Pitts, but it was a good starting point.
 
 
 A few years later in 1958,  Frank Rosenblatt came up with the algorithm for the Perceptron that was a step further than what had been created before. 
@@ -85,12 +87,12 @@ Mathmatically we can write this as:
 
 <img src="img/img7.png" alt=" " width="600"/>
 
-Upon the conception of the Perceptron, Roosenblatt assumed it could represent any boolean circuit and perform any computation. This led to extremelylarge funding from the US Navy and once the media got wind of it, extreme exageration:
+Upon the conception of the Perceptron, Roosenblatt assumed it could represent any boolean circuit and perform any computation. This led to extremely large funding from the US Navy and once the media got wind of it, extreme exageration:
 
-_"The embryo of an electronic computer that [the Navy] expects will be able to walk, talk, see, write, reproduce itself and be conscious of its existence."_ - The New York Times - 1958
+**_"The embryo of an electronic computer that [the Navy] expects will be able to walk, talk, see, write, reproduce itself and be conscious of its existence."_** - The New York Times - 1958
 
 
-_"Frankenstien monsterdesigned by Navy that thinks"_ - Tulsa, Oklahoma Times - 1958
+**_"Frankenstien monsterdesigned by Navy that thinks"_** - Tulsa, Oklahoma Times - 1958
 
 As well as coming up with the model, Roosenblatt also provided a learning mechanism.
 He realised that if he wanted this unit to learn a specific function he could keep providing it examples of input/output pairs. If he recieved a wrong (boolean) output, he could simply adjust the weights by the difference of what the output must be and what the output really is. (We will dive further into this later). This is known as the **Perceptron learnig rule**
@@ -104,7 +106,7 @@ There was one logic gate that it couldn't solve, the XOR gate. A book published 
 
 This ultimatly contributed towards what is known as the AI winter, where funding dried up and slowed research when the promises of AI was not realised.
 
-It's important to note that despite the claims of a multi-layer Perceptron still not being able to solve the XOR problem (agin from Minsky and Paperts book) where not true. We explore this idea and prove it using a neural netwrok here: [Solving XOR with a Neural Network](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Machine-Learning-Algorithms/neural_networks/solving_xor_nn)
+It's important to note that despite the claims of a multi-layer Perceptron still not being able to solve the XOR problem (again from Minsky and Paperts book) where not true. We explore this idea and prove it using a neural netwrok here: [Solving XOR with a Neural Network](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Machine-Learning-Algorithms/neural_networks/solving_xor_nn)
 
 
 ## Overview
