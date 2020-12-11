@@ -11,7 +11,7 @@ pass
   * [A Brief History](#a-brief-history)
   * [Overview](#overview)
   * [Simple Pattern Recognition](#simple-pattern-recognition)
-
+  * [Perceptron learning Rule](#perceptron-learning-rule)
 
 
 ## A Brief History
@@ -279,6 +279,200 @@ The response of our perceptron would be:
 Again a success. We can in fact, input any vectors that are closer to the perfect orange prototype (using Euclidean distance) and it will recognise it as such. The same goes for apples as well.
 
 
+## Perceptron learning Rule
+
+No we can look at the algorithm for tranning perceptron networks.
+
+the learning rule can be described by a procedure for modling the weights and biases fo a network, sometimes also called "the training algorithm", We are essentually using the learning rule to train the network to perform some task.
+
+As we discussed earlier, the output of the network is given by
+```
+	a = hardlim(Wp+b)
+```
+where hardlim is the activation function
+
+More about activation functions [can be found here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Machine-Learning-Algorithms/neural_networks/activation_functions)
+
+
+So given this, if the inner product of the ith row of the weight matrix where the input vector is greater or equal to -b, the output will be 1, else the output will be 0.
+
+Let's test this with a simple two-input Perceptron.
+
+The output will be determined by 'a', our activation function. we can write a like so
+```
+	a = hardlim(n)
+	a = hardlim(Wp+b)
+	a = hardlim(₁wᵀp+b)
+	a = hardlim(w₁,p₁+w₁,2p₂+b)
+```
+
+The decision boundry is determined by the input vectors for which the net input n is zero.
+```
+	n = ₁wᵀp+b
+	  = w₁,₁p₁+w₁,₂p₂+b
+	  = 0
+```
+
+To better understand this, we can assign values for the weights and biases
+
+* w₁,₁ = 1
+* w₁,₂ = 1
+* b =   -1
+
+This would then make our decision boundry as follows:
+```
+	n = ₁wᵀp+b
+ 	  = w₁,₁p₁+w,₂p₂+b
+	  = p₁+p₂ -1
+	  = 0
+```
+
+
+This gives us our decision boundry, a line where one side of the plane will be 1, and the other will be 0.
+
+To draw the line we need to find the points where it intersects the p₁ and p₂ axes.
+
+To find the p₂ intercept, set p₁ = 0:
+```
+	        b      -1
+	p₂ = - ---- = ---- = 1 if p₁ = 0
+	       w₁,₂    1
+```
+
+
+similary, to find the p₁ intercept, set p₂ = 0
+```
+	        b      -1
+	p₁ = - ---- = ---- = 1 if p₂ = 0
+	       w₁,₁    1
+```
+
+
+As seen below, this creates the following decision boundry
+
+
+<img src="img/img12.png" alt=" " width="600"/>
+
+To find out which side of the boundry is equal to 1, we can test just one point. For input [2 0]ᵀ, the network output will be 
+```
+	a = hardlim(₁wᵀp+b) = hardlim([1 1]|2| -1) = 1
+					   |0|
+```
+
+This is shown in the above image as the shaded area. Also, remember the boundry si always orthogonal to ₁w.
+
+The Perceptron learning rule is a great example of supervised training. We will use a test problem to illustrate this.
+
+The input/target pairs for our test problem are:
+
+<img src="img/img13.png" alt=" " width="600"/>
+
+
+We can view this on a graph like so, where the shaded circle is a 1 and the empty circle is a 0
+
+
+<img src="img/img14.png" alt=" " width="600"/>
+
+
+This network will have 2 inputs and a single output. For simplicity we not use a bias for this so the decision boundry will pass through the origin.
+
+To begon traning we will asssign some initial values for the network parameters. In our case, because we are only training a two-input/single-output network without a bias, we only have to initialise it's two weights. To start with, we initilise these weights randomly.
+```
+	₁wᵀ = [1.0 -0.8]
+```
+
+Now we can present the input vectors to the network. let's begin with p₁
+```
+	a = hardlim(₁wᵀp₁)
+	  = hardlim([1.0 -0.8]|1|)
+			      |2|
+	  = hardlim(-0.6) = 0
+```
+
+The result is 0. As we can see the network has not returned the correct value. we expected the result, t₁, to equal 1.
+So what we need to do is alter the weight vector so that it points more towards p₁, that should insure a better chance of classifying it correctly.
+
+One possible way is to set up some rules. For instance in this case we can add p₁ to ₁w.
+Adding p₁ to ₁w would make ₁w point more in the direction of p₁. Repeated presentations of p₁ would cause the direction of ₁w to asymptotically approach the direction of p₁
+
+This rule can be stated as:
+```
+	if t=1 and a=0, then ₁w(new) = ₁w(old) + p
+```
+
+Applying this rule to our test problem results in new values for ₁w
+```
+	₁w(new) = ₁w(old) +p₁
+		= | 1.0| + |1| = |2.0|
+		  |-0.8|   |2|   |1.2|
+```
+
+We now move on to the next input vector and continue making changes to the weights and cycling through the inputs until they are all classified correctly. So let's do it
+
+
+The next input vector is p₂. When it is presented to the network we find
+```
+	a = hardlim(₁wᵀp₂) = hardlim([2.0 1.2]|-1|)
+					       | 2|
+	  = hardlim(0.4) 
+	  = 1
+```
+
+
+The target t₂ associated with p₂ is 0 yet the output a is 1. A class 0 vector was misclassified as a 1.
+
+Looks like we have to apply a learning rule to update this vator. This time we want to move the weight vector ₁w away from the input, so we can simply change the addition from our rule to subtract rather than add. Like so:
+```
+	if t=0 and a=1, then ₁w(new) = ₁w(old) -p
+```
+
+if we apply this to the test problem we find
+```
+	₁w(new) = ₁w(old) -p₂ = |2.0| - |-1| = | 3.0|
+				|1.2|   | 2|   |-.08|
+```
+
+
+Now, we present the third vector p₃
+```
+	a = hardlim(₁wᵀp₃) = hardlim([3.0 -0.8]| 0|)
+					      |-1|
+	  = hardlim(0.8)
+	  = 1
+```
+
+
+The current ₁w results in a decision boundry that misclassifies p₃. We already have a rule for this, so ₁w will be updated again
+```
+	₁w(new) = ₁w(old) -p₃ = | 3.0| - | 0| = |3.0|
+				|-0.8|   |-1|   |0.2|
+```
+
+
+This gives us the following result
+
+
+<img src="img/img15.png" alt=" " width="600"/>
+
+
+As we can see the Perceptron has now learned to classify the three vectors properly. If we present any of the input vectors to the neuron, it will output the correct class for that input vector.
+
+
+this brings us to the final rule... If it's not broken, don't fix it
+```
+	if t=a, then w(new) = ₁w(old)
+```
+
+Here are the 3 rules which cover all possible combinations of output and target values
+
+```
+	if t=1 and a=0, then ₁w(new) = ₁w(old) +p
+	if t=0 and a=1, then ₁w(new) = ₁w(old) -p
+	if t=a, then w(new) = ₁w(old)
+```
+
+
+Now, lets see this in action by coding a preceptron class from scratch
 
 
 
