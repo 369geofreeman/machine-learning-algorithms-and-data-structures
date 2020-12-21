@@ -6,14 +6,14 @@
 **KNN implementation from scratch:**
 Building a KNN from scratch and testing it on the iris dataset
 
-  * [Knn class](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/knn/knn.py)
-  * [Script for testing KNN class](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/knn/knn_test.py)
+  * [Knn class](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/Classification/knn/knn.py)
+  * [Script for testing KNN class](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/Classification/knn/knn_test.py)
 
 
 **KNN digit recognition:**
 An example of using sklearns KNN class to recognise handwritten dogits using the MNist dataset
 
-  * [Digit Recognition](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/knn/digit_recognition.py)
+  * [Digit Recognition](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/Classification/knn/digit_recognition.py)
 
 
 ## Contents
@@ -183,8 +183,8 @@ Setting k=3 give the best result for the Iris dataset we are using, as you can s
 Accuracy of KNN model: 100.0%
 ```
 
-  * To view the full code [click here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/knn/knn.py)
-  * To view ot the testing file [click here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/knn/knn_test.py)
+  * To view the full code [click here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/Classification/knn/knn.py)
+  * To view the testing file [click here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/Classification/knn/knn_test.py)
 
 ## Advantages and Disadvantages
 
@@ -381,7 +381,7 @@ Which yields the follow results
 <img src="img/img5.png" alt=" " width="800"/>
 
 
-To view the full code [cick here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/knn/digit_recognition.py)
+To view the full code [cick here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/Classification/knn/digit_recognition.py)
 
 
 

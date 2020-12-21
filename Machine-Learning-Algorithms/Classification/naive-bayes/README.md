@@ -4,13 +4,13 @@
 ## Code
 
 **Implementation from scratch**
-  * [Naive Bayes class](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/Naive_Bayes.py)
-  * [Testing script](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/Naive_Bayes_Tests.py)
+  * [Naive Bayes class](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/Classification/naive-bayes/Naive_Bayes.py)
+  * [Testing script](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/Classification/naive-bayes/Naive_Bayes_Tests.py)
 
 **Implementations with skllearn**
-  * [Bernoulli Native Bayes](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/bernoulli_nb.py)
-  * [Multinomial Naive Bayes](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/multinomial_nb.py)
-  * [Gaussian Naive Bayes](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/gaussian_nb.py)
+  * [Bernoulli Native Bayes](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/Classification/naive-bayes/bernoulli_nb.py)
+  * [Multinomial Naive Bayes](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/Classification/naive-bayes/multinomial_nb.py)
+  * [Gaussian Naive Bayes](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/Classification/naive-bayes/gaussian_nb.py)
 
 
 
@@ -153,9 +153,9 @@ There are 3 variants of Naive Bayes that are most common and we'll go though eac
 ##  Naive Bayes from scratch
 
 
-  * **To see the full code, you can view it [here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/Naive_Bayes.py)**
+  * **To see the full code, you can view it [here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/Classification/naive-bayes/Naive_Bayes.py)**
 
-  * **To test the code, you can [here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/Naive_Bayes_Tests.py)**
+  * **To test the code, you can [here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/Classification/naive-bayes/Naive_Bayes_Tests.py)**
 
 
 **Below is the Naive Bayes class**
@@ -301,7 +301,7 @@ If we pass the data set as [[0,0],[0,1],[1,0],[1,1]] we should get the results i
 
 Which is exactly what we predicted.
 
-**The full code for Bernoulli Naive Bayes can be found [here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/bernoulli_nb.py)**
+**The full code for Bernoulli Naive Bayes can be found [here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/Classification/naive-bayes/bernoulli_nb.py)**
 
 
 
@@ -376,7 +376,7 @@ The result is 0.83510
 
 As we can see, a large number of categories are detected with ease, the ones that are missclassified only seem to be ones with very similar categories, sci.electronics and comp.sys.ibm.pc.hardware for example.
 
-The full code can be found here: [Multinomial Naive Bayes](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/multinomial_nb.py)
+The full code can be found here: [Multinomial Naive Bayes](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/Classification/naive-bayes/multinomial_nb.py)
 
 
 
@@ -467,7 +467,7 @@ print('Predicted Value', predicted)
 
 The output is 1 indicating our prediction was successful.
 
-**We can view the code here [Gaussian Naive Bayes](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/naive-bayes/gaussian_nb.py)**
+**We can view the code here [Gaussian Naive Bayes](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/Classification/naive-bayes/gaussian_nb.py)**
  
 
 

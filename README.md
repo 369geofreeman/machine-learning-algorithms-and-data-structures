@@ -14,7 +14,7 @@
 
   * [Logistic Regression](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Machine-Learning-Algorithms/Classification/logistic-regression)
   * [Naive Bayes](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Machine-Learning-Algorithms/Classification/naive-bayes)
-  * [K-Nearest Neighbors](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Machine-Learning-Algorithms/knn)
+  * [K-Nearest Neighbors](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Machine-Learning-Algorithms/Classification/knn)
 
 
 ### Regression
