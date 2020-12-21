@@ -4,7 +4,9 @@
 
 ### Code
 
-pass
+* The full code can be [found here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/neural_networks/perceptron/perceptron.py)
+* A script to test the perceptron can be found [here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/neural_networks/perceptron/perceptron_tests.py)
+
 
 ### Contents
 
@@ -12,6 +14,7 @@ pass
   * [Overview](#overview)
   * [Simple Pattern Recognition](#simple-pattern-recognition)
   * [Perceptron learning Rule](#perceptron-learning-rule)
+  * [Perceptron from Scratch](#perceptron-from-scratch)
 
 
 ## A Brief History
@@ -475,10 +478,114 @@ Here are the 3 rules which cover all possible combinations of output and target 
 Now, lets see this in action by coding a preceptron class from scratch
 
 
+# Perceptron from Scratch
+
+Here is the class of perceptron
 
 
 
+```
+import numpy as np
 
 
+class Perceptron:
+    def __init__(self, learning_rate = 0.01, num_iters = 1000):
+        self.lr = learning_rate
+        self.n_iters = num_iters
+        self.activation_func = self._unit_step_func
+        self.weights = None
+        self.bias = None
 
+    def fit(self, X, y):
+        n_samples, n_features = X.shape
+
+        # init weights
+        self.weights = np.zeros(n_features)
+        self.bias = 0
+
+        y_ = np.array([1 if i > 0 else 0 for i in y])
+
+        for _ in range(self.n_iters):
+            for idx, x_i in enumerate(X):
+                linear_output = np.dot(x_i, self.weights) + self.bias
+                y_predicted = self.activation_func(linear_output)
+
+                update = self.lr * (y_[idx] - y_predicted)
+                self.weights += update * x_i
+                self.bias += update
+
+    def predict(self, X):
+        linear_output = np.dot(X, self.weights) + self.bias
+        y_predicted = self.activation_func(linear_output)
+        return y_predicted
+
+    def _unit_step_func(self, x):
+        return np.where(x >= 0, 1, 0)
+
+```
+
+We can test it with the following code
+
+```
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn import datasets
+import matplotlib.pyplot as plt
+
+from perceptron import Perceptron
+
+def accuracy(y_true, y_pred):
+    # Return the accuracy of the model
+    accuracy = np.sum(y_true == y_pred) / len(y_true)
+    return accuracy
+
+
+# Get datasets as blobs from sklearn
+X, y = datasets.make_blobs(n_samples=150, n_features=2, centers=2, cluster_std=1.05, random_state=2)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=123)
+
+# Create a perceptron
+p = Perceptron(learning_rate=0.01, num_iters=1000)
+# Fit the traning data
+p.fit(X_train, y_train)
+# Predict the test labels
+predictions = p.predict(X_test)
+
+# Calculate the accuracy
+print("Perceptron classification accuracy", accuracy(y_test, predictions))
+
+
+# Plot the data
+
+fig = plt.figure()
+ax = fig.add_subplot(1,1,1)
+plt.scatter(X_train[:,0], X_train[:,1], marker='o',c=y_train)
+
+x0_1 = np.amin(X_train[:,0])
+x0_2 = np.amax(X_train[:,0])
+
+x1_1 = (-p.weights[0] * x0_1 - p.bias) / p.weights[1]
+x1_2 = (-p.weights[0] * x0_2 - p.bias) / p.weights[1]
+
+ax.plot([x0_1, x0_2], [x1_1, x1_2], 'k')
+
+ymin = np.amin(X_train[:,1])
+ymax = np.amax(X_train[:,1])
+ax.set_ylim([ymin-3,ymax+3])
+
+
+plt.show()
+
+```
+
+
+As we can see the Perceptron is working perfectly
+```
+ Perceptron classification accuracy 1.0
+```
+<img src="img/img16.png" alt=" " width="600"/>
+
+
+* The full code can be [found here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/neural_networks/perceptron/perceptron.py)
+* With tests [here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Machine-Learning-Algorithms/neural_networks/perceptron/perceptron_tests.py)
 
