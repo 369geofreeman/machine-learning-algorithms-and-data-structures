@@ -26,6 +26,8 @@
 
 # Data Structures
 
+  * [101](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/101)
+  * [Recursion](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/recursion)
   * [Linked Lists](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/Linked-Lists)
   * [Stacks](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/Stacks)
 
