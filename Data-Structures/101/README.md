@@ -7,6 +7,6 @@
 * [Reading froma file (multiline)](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/101/read-from-file-singleline.py)
 * [Polymorphism](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/101/polymorphism.py)
 * [The Acumulator Pattern](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/101/accumulator_pattern.py)
-
+* [List Access Timing](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/101/list_access_timing.py)
 
 
