@@ -1,10 +1,11 @@
-# Scope
-# ---
+# Scope
+# ---
 
 import math
 
 # ------ The module level ------ #
 PI = math.pi
+
 
 def area(radius):
     # ---- Local scope of area (including radius identifier) ---- #
@@ -15,7 +16,7 @@ def area(radius):
 
 
 def main():
-    # ---- Local scope of main ----#
+    # ---- Local scope of main ----#
 
     historyOfPrompts = []
     historyOfOutput = []
@@ -28,6 +29,12 @@ def main():
         return x
         # --- end of getMain scope --- #
 
+    def showOutput(val):
+        # --- Local scope of showOutput --- #
+        historyOfOutput.append(val)
+        print(val)
+        # --- end of showOutput scope -- #
+
     rString = getInput("Please enter the radius of a circle: ")
     r = float(rString)
     val = area(r)
@@ -39,7 +46,7 @@ def main():
 if __name__ == "__main__":
     main()
 
-# ------ End of module level scope ------ #
+# ------ End of module level scope ------ #
 
 
 

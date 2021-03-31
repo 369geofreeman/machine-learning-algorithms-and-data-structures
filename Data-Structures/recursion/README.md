@@ -1,7 +1,7 @@
 # Recursion
 
 
-### Code for the problems can be [found here](https://github.com/369geofreeman/tutorials-and-compititions/blob/main/dynamic_programing/recursion/recursion.py)
+### Code for the following problems can be [found here](https://github.com/369geofreeman/tutorials-and-compititions/blob/main/dynamic_programing/recursion/recursion.py)
 
   * Sum all the numbers up to n
   * Traverse an m by n grid
@@ -15,9 +15,6 @@
   * [5 Steps to Solving a Recursion Problem](#5-steps-to-solving-a-recursion-problem)
   * [Traversing an m by n grid](#traversing-an-m-by-n-grid)
   * [Count partitions](#count-partitions)
-
-
-<img src="img/rec.gif" alt="Recursion gif" width="300"/>
 
 
 ## 5 Steps to Solving a Recursion Problem
@@ -264,4 +261,5 @@ Which turns out to be a very elegent solution to the problem.
 
 
 
+<img src="img/rec.gif" alt="Recursion gif" width="600"/>
 
