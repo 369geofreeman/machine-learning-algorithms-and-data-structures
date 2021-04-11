@@ -5,6 +5,7 @@
 # Merge sort is an instance of a divide and conquer algorithm. The basic premise
 # is we divide a problem into two pieces. Each of the the two pieces are easier
 # to solve rather than attempting the entire thing, because they are smaller.
+# O(n log n)
 
 
 def mergeTwoSortedLists(a, b, arr):
