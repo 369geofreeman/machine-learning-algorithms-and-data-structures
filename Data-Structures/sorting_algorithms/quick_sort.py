@@ -43,6 +43,8 @@ def quick_sort(elements, start, end):
         quick_sort(elements, pi+1, end)  # Right partition
 
 
+# Tests
+
 if __name__ == "__main__":
     elements = [11, 9, 29, 7, 2, 15, 28]
     quick_sort(elements, 0, len(elements) - 1)
