@@ -39,3 +39,4 @@
   * [Bayesian Methods](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Statistic/Bayesian_methods)
 	- [Librarian or Farmer](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Statistic/Bayesian_methods/Librarian_or_Farmer.py)
 	- [Probability mass function of a Poisson random variable, differing λ values](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Statistic/Bayesian_methods/poisson.py)
+	- [Probability density function of an exponential random variable, differeinig λ values](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Statistic/Bayesian_methods/PDF_function.py)
