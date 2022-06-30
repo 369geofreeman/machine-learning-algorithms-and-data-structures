@@ -24,4 +24,4 @@
 - [The K Weakest Rows in a Matrix](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/searching/k_weakest.py)
 - [ Check If N and Its Double Exist](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/searching/n_double.py)
 - [Count Negative Numbers in a Sorted Matrix](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/searching/n_nums_matrix.py)
-- [Minimum Operations to Reduce X to Zero](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/searching/x_to_zero.py
+- [Minimum Operations to Reduce X to Zero](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/searching/x_to_zero.py)
