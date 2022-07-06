@@ -49,12 +49,12 @@ class PyList:
         self.items = newlst
         self.size = newlen
 
-    def append(self.item):
+    def append(self, item):
         # O(1) time
         if self.numItems == self.size:
             self.__makeroom()
 
-        self.items(self.numItems) = item
+        self.items[self.numItems] = item
         self.numItems += 1
 
     def insert(self, i, e):
@@ -71,7 +71,7 @@ class PyList:
         else:
             self.append(e)
 
-    def __delitem__(self.index):
+    def __delitem__(self, index):
         # O(n) time
         for i in range(index, self.numItems-1):
             self.items[i] = self.items[i+1]
@@ -80,7 +80,7 @@ class PyList:
     def __eq__(self, other):
         # O(n) time
         if type(other) != type(self):
-               return False
+            return False
 
         if self.numItems != other.numitems:
             return False
@@ -90,10 +90,3 @@ class PyList:
                 return False
 
         return True
-
-
-
-
-
-
-
