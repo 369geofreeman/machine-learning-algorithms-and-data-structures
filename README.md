@@ -41,6 +41,7 @@
 - [Linked Lists](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/Linked-Lists)
 - [Stacks](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/Stacks)
 - **Trees**
+  - [Basic Tree](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/trees/binary_tree/binary_tree.py)
   - [Tree Traversals](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/trees/traversing_trees/traversing_trees.ipynb)
 
 # Algoithms
