@@ -2,12 +2,16 @@
 
 Indepth look in to grapghs [here](https://algs4.cs.princeton.edu/40graphs/)
 
+---
+
 There are four important types of graph models:
 
 - **Undirected graphs**: => with simple connections
 - **Digraphs graphs**: => where the direction of each connection is significant
 - **Edge-weighted graphs**: => where each connection has an software associated weight
 - **Edge-weighted digraphs**: => where each connection has both a direction and a weight
+
+---
 
 Connectivity in a directed graph is a bit more complicated than in an undirected graph. Let's look at some more definitions:
 
@@ -23,7 +27,7 @@ Here we only use "connected graph" to refer to undirected graphs. In a connected
 **Strongly Connected**
 Strongly connected directed graphs must have a path from every node and every other node. So, there must be a path from A to B AND B to A.
 
-### Edge list
+## Edge list
 
 An edge list is simply a list of edges that each contain two integers representing ID numbers for corresponding vertices. or put more simply; The inner lists are each a list that is showing two nodes that have an edge between them, and the edge list is the list that encompasses all the inner lists.
 
@@ -38,7 +42,7 @@ edge_list  [
 ]
 ```
 
-### Adjancency List
+## Adjancency List
 
 And adjancency list is another way to represent edges in a graph. In an adjancency list the vertices normally have an ID number that corrisponds to the index in an array.
 In our array each space is used to store a list of nodes that the node with that ID is adjacent to.
@@ -54,7 +58,7 @@ For example, the opening at index 0 (below), represents a vertex with an ID of 0
 
 The adjacency list is also 2d.
 
-### Adjancency Matrix
+## Adjancency Matrix
 
 In computer science a matrix is a 2d array, but all the lists inside the array are the same length.
 
