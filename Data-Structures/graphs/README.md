@@ -1,13 +1,18 @@
 # Graphs
 
-Indepth look in to grapghs [here](https://algs4.cs.princeton.edu/40graphs/)
+- [Graph Class](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/graphs/graph_class.py)
+- [Graph for Flight paths](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/graphs/graph_flight_class.py)
+
+Indepth look in to graphs [here](https://algs4.cs.princeton.edu/40graphs/)
 
 ---
 
+## Notes:
+
 There are four important types of graph models:
 
-- **Undirected graphs**: => with simple connections
-- **Digraphs graphs**: => where the direction of each connection is significant
+- **Undirected graphs**: => with simple connections. no directs between two nodes.
+- **Direction graphs**: => where the direction of each connection is significant
 - **Edge-weighted graphs**: => where each connection has an software associated weight
 - **Edge-weighted digraphs**: => where each connection has both a direction and a weight
 
@@ -47,7 +52,7 @@ edge_list  [
 And adjancency list is another way to represent edges in a graph. In an adjancency list the vertices normally have an ID number that corrisponds to the index in an array.
 In our array each space is used to store a list of nodes that the node with that ID is adjacent to.
 
-For example, the opening at index 0 (below), represents a vertex with an ID of 0. That vertext shares an edge with one node so oor reference is stored at the forst spot in the array `[1]`.
+For example, the opening at index 0 (below), represents a vertex with an ID of 0. That vertext shares an edge with one node so our reference is stored at the first spot in the array `[1]`.
 
 ```
 (0)----(1)           adjacency_list = [
