@@ -65,14 +65,24 @@ class Graph(object):
         of tuples that looks like this:
         (To Node, Edge Value)"""
 
-        ret = []
+        dgr = 0
 
-        for node in self.nodes:
-            a, b = [i.node_from.value for i in node.edges], [
-                i.value for i in node.edges]
-            ret.append((a, b))
+        if len(self.nodes):
+            for node in self.nodes:
+                if node.value > dgr:
+                    dgr = node.value
 
-        return ret
+        adjacency_list = [None] * (dgr + 1)
+
+        for edge in self.edges:
+            if adjacency_list[edge.node_from.value]:
+                adjacency_list[edge.node_from.value].append(
+                    (edge.node_to.value, edge.value))
+            else:
+                adjacency_list[edge.node_from.value] = [
+                    (edge.node_to.value, edge.value)]
+
+        return adjacency_list
 
     def get_adjacency_matrix(self):
         """Return a matrix, or 2D list.
@@ -80,7 +90,19 @@ class Graph(object):
         column numbers represent to nodes.
         Store the edge values in each spot,
         and a 0 if no edge exists."""
-        return []
+        dgr = 0
+
+        if len(self.nodes):
+            for node in self.nodes:
+                if node.value > dgr:
+                    dgr = node.value
+        adjacency_matrix = [
+            [0 for _ in range(dgr + 1)] for _ in range(dgr + 1)]
+
+        for edge in self.edges:
+            adjacency_matrix[edge.node_from.value][edge.node_to.value] = edge.value
+
+        return adjacency_matrix
 
 
 graph = Graph()

@@ -2,6 +2,7 @@
 
 - [Graph Theory](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/graphs/graph_theory.ipynb)
 - [Graph Class](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/graphs/graph_class.py)
+- [Traversing Graphs (DFS / BFS)](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/graphs/trav_graph.py)
 - [Graph for Flight paths](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/graphs/graph_flight_class.py)
 
 Indepth look in to graphs [here](https://algs4.cs.princeton.edu/40graphs/)
