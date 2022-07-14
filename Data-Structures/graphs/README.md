@@ -1,5 +1,6 @@
 # Graphs
 
+- [Graph Theory](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/graphs/graph_theory.ipynb)
 - [Graph Class](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/graphs/graph_class.py)
 - [Graph for Flight paths](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/graphs/graph_flight_class.py)
 
