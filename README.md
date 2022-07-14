@@ -45,6 +45,7 @@
   - [Tree Traversals](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/trees/traversing_trees/traversing_trees.ipynb)
   - [Binary Search Tree (BST)](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/trees/binary_tree/bst.py)
 - [Graphs](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/graphs)
+  - [Graph Theory](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/graphs/graph_theory.ipynb)
   - [Graph Class](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/graphs/graph_class.py)
   - [Graph for Flight paths](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/graphs/graph_flight_class.py)
 
