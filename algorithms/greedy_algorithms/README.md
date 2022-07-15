@@ -4,4 +4,5 @@
 
 **Types of Greedy Algorithms**
 
-[Selection Sort](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/sorting_algorithms/selection_sort.ipynb)
+- [Selection Sort](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/sorting_algorithms/selection_sort.ipynb)
+- [Dijkstras Algorithm (Shortest path problem)](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/algorithms/dijkstras_algorithm.ipynb)
