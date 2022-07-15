@@ -55,6 +55,7 @@
 - [Greedy Algorithms](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/algorithms/greedy_algorithms)
 - [Dijkstras Algorithm (Shortest path problem)](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/algorithms/dijkstras_algorithm.ipynb)
 - [Knapsack Problem](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/algorithms/knapsack.ipynb)
+- [Traveling Salesman Problem](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/algorithms/tsp.ipynb)
 
 # Statistics
 
