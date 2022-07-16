@@ -1,29 +1,30 @@
-# Importing the Stack class we use it to check if the 
+# Importing the Stack class we use it to check if the
 # delimiters of a math expression is balanced
 
 
-from Stack import Stack
+from collections import deque
 
 
-def is_matched(exp):
+def is_matched(s):
     """
     Return True if all the delimiters are
     properly matched; False otherwise
     """
 
-    lefty = '({['
-    righty = ')}]'
-    S = Stack()
+    d = {"(": ")", "[": "]", "{": "}"}
+    check = '(){}[]'
 
-    for c in exp:
-        if c in lefty:
-            S.push(c)
-        elif c in righty:
-            if S.is_empty():
-                return False
-            if righty.index(c) != lefty.index(S.pop()):
-                return False
-    return S.is_empty()
+    stack = deque()
+
+    for bracket in s:
+        if bracket in check:
+            if bracket in d:
+                stack.append(d[bracket])
+            else:
+                if not stack or bracket != stack.pop():
+                    return False
+
+    return True if not stack else False
 
 
 # Tests
@@ -45,7 +46,3 @@ if __name__ == "__main__":
     print('\n')
     print('Your results are {}.'.format(ans))
     print('-'*20)
-
-
-
-

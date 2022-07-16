@@ -187,23 +187,24 @@ This is especially useful when processing arithmetic expressions. let's see how 
 To run the code with our stack class on multiple tests, [click here](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/Data-Structures/Stacks/code-examples/match-delimiters.py)
 
 ```
-def is_matched(exp):
+def is_matched(s):
     """
     Return True if all the delimiters are
     properly matched; False otherwise
     """
 
-    lefty = '({['
-    righty = ')}]'
-    S = Stack()
+    d = {"(": ")", "[": "]", "{": "}"}
+    check = '(){}[]'
 
-    for c in exp:
-        if c in lefty:
-            S.push(c)
-        elif c in righty:
-            if S.is_empty():
-                return False
-            if righty.index(c) != lefty.index(S.pop()):
-                return False
-    return S.is_empty()
+    stack = deque()
+
+    for bracket in s:
+        if bracket in check:
+            if bracket in d:
+                stack.append(d[bracket])
+            else:
+                if not stack or bracket != stack.pop():
+                    return False
+
+    return True if not stack else False
 ```
