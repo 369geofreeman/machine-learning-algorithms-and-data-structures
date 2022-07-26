@@ -50,7 +50,7 @@
   - [Graph Class](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/graphs/graph_class.py)
   - [Graph for Flight paths](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/graphs/graph_flight_class.py)
 
-# Algoithms
+# Algorithms
 
 - [Greedy Algorithms](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/algorithms/greedy_algorithms)
 - [Dijkstras Algorithm (Shortest path problem)](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/blob/main/algorithms/dijkstras_algorithm.ipynb)
