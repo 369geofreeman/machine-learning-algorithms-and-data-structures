@@ -49,6 +49,8 @@
   - [Traversing Graphs (DFS / BFS)](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/graphs/trav_graph.py)
   - [Graph Class](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/graphs/graph_class.py)
   - [Graph for Flight paths](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/graphs/graph_flight_class.py)
+- [Tries](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/tries)
+  - [About Tries](https://github.com/369geofreeman/machine-learning-algorithms-and-data-structures/tree/main/Data-Structures/tries)
 
 # Algorithms
 
